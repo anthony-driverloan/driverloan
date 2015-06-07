@@ -1,0 +1,67 @@
+<!--<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">driverloan-v1</a>
+    </div>
+    <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav">
+        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+            <a ng-href="{{item.link}}">{{item.title}}</a>
+        </li>
+        <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
+        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
+        <li ng-show="isLoggedIn()"><p class="navbar-text">Hello {{ getCurrentUser().name }}</p> </li>
+        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"><span class="glyphicon glyphicon-cog"></span></a></li>
+        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>-->
+
+        <!-- ******HEADER****** --> 
+        <header id="header" class="header navbar-fixed-top">  
+            <div class="container">            
+                <h1 class="logo pull-left">
+                    <a href="/">
+                        <span class="logo-title"><img src="../../assets/images/press/icon.png"/ id="logo"> DRIVER</span>
+                    </a>
+                </h1><!--//logo-->              
+                <nav id="main-nav" class="main-nav navbar-right " role="navigation">
+                    <div class="navbar-header ">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button><!--//nav-toggle-->
+                    </div><!--//navbar-header-->            
+                    <div class="navbar-collapse collapse" id="navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item"><a href="index.html">Apply</a></li>
+                            <li class="nav-item"><a href="tour.html">About us</a></li>
+                            <li class="nav-item"><a href="pricing.html">Questions</a></li>
+                                                        <li class="nav-item"><a href="contact.html">Contact us</a></li>                             
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="blog.html">Logbook Loans <i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="blog.html">Blog Home</a></li>
+                                    <li><a href="blog-single.html">Single Blog Post</a></li>
+                                    <li><a href="email-templates/tempo-email-color-1.html">Email Template (10 Colour Options)</a></li>           
+                                </ul>
+                            </li><!--//dropdown--> 
+                            <li class="nav-item nav-item-cta last"><a href="/login"  class="btn btn-cta btn-cta-secondary" >Log in</a></li>
+                        </ul><!--//nav-->
+                    </div><!--//navabr-collapse-->
+                </nav><!--//main-nav-->           
+            </div><!--//container-->
+        </header><!--//header-->
