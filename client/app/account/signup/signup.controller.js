@@ -2,13 +2,13 @@
 
 angular.module('driverloanV1App')
   .controller('SignupCtrl', function ($scope, Auth, $location, $http) {
+    
+    
+    
     $scope.user = {};
     $scope.errors = {};
     
-    //Default values for selects
-    $scope.user.title = "Please Select";
-    $scope.user.dobDay = "--";
-    $scope.user.dobMonth = "--";
+   
      
 
     $scope.register = function(form) {
@@ -16,9 +16,9 @@ angular.module('driverloanV1App')
       
 var opts = {
   lines: 13 // The number of lines to draw
-, length: 13 // The length of each line
-, width: 4 // The line thickness
-, radius: 12 // The radius of the inner circle
+, length: 12 // The length of each line
+, width: 2 // The line thickness
+, radius: 10 // The radius of the inner circle
 , scale: 1 // Scales overall size of the spinner
 , corners: 1 // Corner roundness (0..1)
 , color: '#000' // #rgb or #rrggbb or array of colors
@@ -39,6 +39,11 @@ var opts = {
 var target = document.getElementById('loader')
 var spinner = new Spinner(opts).spin(target);
 
+console.log($scope.user);
+
+
+$('#next-btn').prop('disabled', true);
+
       if(form.$valid) {
         Auth.createUser({
           title: $scope.user.title,
@@ -48,9 +53,9 @@ var spinner = new Spinner(opts).spin(target);
           dobDay: $scope.user.dobDay,
           dobMonth: $scope.user.dobMonth,
           dobYear: $scope.user.dobYear,
-          mobileNumber: $scope.user.dobNumber,
+          mobileNumber: $scope.user.mobileNumber,
           residenceStatus: $scope.user.residenceStatus,
-          postcode: $scope.user.postcode,
+          currentAddressPostcode: $scope.user.currentAddressPostcode,
           currentAddressLineOne: $scope.user.currentAddressLineOne,
           currentAddressLineTwo: $scope.user.currentAddressLineTwo,
           currentAddressTown: $scope.user.currentAddressTown,
@@ -60,7 +65,7 @@ var spinner = new Spinner(opts).spin(target);
         })
         .then( function() {
           // Account created, redirect to home
-          $location.path('/');
+          $location.path('/new_loan/your_vehicle');
         })
         .catch( function(err) {
           err = err.data;
