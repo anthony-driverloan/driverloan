@@ -14,7 +14,7 @@ exports.sendAddress = function(req, res) {
     if (error) {
         res.send(500, error);   
     } 
-    res.send(200, addresses);     
+    res.json(200, addresses);     
 });
 
 };
