@@ -8,10 +8,32 @@ angular.module('driverloanV1App')
     $scope.user = {};
     $scope.errors = {};
     
+    $scope.selectAddress = false;
+    
+     $scope.address = {};
+        $scope.addresses = null;
+    
+    
+    
+    $scope.findAddress = function(){
+      
+              $http.post('/api/postcodes',{postcode:$scope.address.postcode})
+.success(function(data){
+  
+  $scope.addresses = data;
+ 
+  console.log($scope.addresses);
+})
+.error(function(data){
+  console.log(data)
+});
+      
+      
+    };
    
      
 
-    $scope.register = function(form) {
+    $scope.register = function() {
       $scope.submitted = true;
       
 var opts = {
@@ -39,12 +61,11 @@ var opts = {
 var target = document.getElementById('loader')
 var spinner = new Spinner(opts).spin(target);
 
-console.log($scope.user);
+
 
 
 $('#next-btn').prop('disabled', true);
 
-      if(form.$valid) {
         Auth.createUser({
           title: $scope.user.title,
           fName: $scope.user.fName,
@@ -55,7 +76,7 @@ $('#next-btn').prop('disabled', true);
           dobYear: $scope.user.dobYear,
           mobileNumber: $scope.user.mobileNumber,
           residenceStatus: $scope.user.residenceStatus,
-          currentAddressPostcode: $scope.user.currentAddressPostcode,
+          currentAddressPostcode: $scope.address.postcode,
           currentAddressLineOne: $scope.user.currentAddressLineOne,
           currentAddressLineTwo: $scope.user.currentAddressLineTwo,
           currentAddressTown: $scope.user.currentAddressTown,
@@ -78,6 +99,6 @@ $('#next-btn').prop('disabled', true);
           });
         });
       }
-    };
+ 
 
   });

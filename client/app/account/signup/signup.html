@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-12">
       <h1 class="page-header-blue">Tell us about yourself</h1>
-      <p>Make sure you have your vehicle's logbook with you durgin the application process.</p>
+      <p class="lead">Make sure you have your vehicle's logbook with you durgin the application process.</p>
     </div>
   </div>
   </div>
@@ -11,7 +11,7 @@
   
   <!-- ******Application progress****** -->
   <div class="container">
-  <div ng-include="'components/application-progress/application-progress.html'"></div>
+  <div ng-include="'components/application-progress/application-progress-one.html'"></div>
   </div>
   
    <div class="container">
@@ -19,7 +19,7 @@
    
    <div class="col-sm-8" >
      
-   <form class="form-horizontal application-form-container" name="form" ng-submit="register(form)" novalidate>
+   <form class="form-horizontal application-form-container" name="form"  novalidate>
      <p class="form-header">Personal details</p>
      <hr>
   <div class="form-group">
@@ -138,12 +138,12 @@
        <div class="form-group">
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Postcode</label>
     <div class="col-sm-3">
-      <input type="text" class="form-control" id="inputPassword3" ng-model="user.currentAddressPostcode">
+      <input type="text" class="form-control" id="inputPassword3" ng-model="address.postcode">
 
     </div>
     
      <div class="col-sm-3">
-      <button class="btn btn-cta-primary btn-block btn-add">Find address</button>
+      <button class="btn btn-cta-primary btn-block btn-add" ng-click="findAddress()">Find address</button>
 
     </div>
   </div>
@@ -155,10 +155,7 @@
        <select class="form-control" ng-model="user.title" >
          
    
-         <option value="Mr">Mr</option>
-          <option value="Mrs">Mrs</option>
-           <option value="Miss">Miss</option>
-            <option value="Ms">Ms</option>
+     <option ng-repeat="addressFound in addresses">{{addressFound.line_1}}</option>
 
 </select> 
       
@@ -168,7 +165,7 @@
   </div>
   
   
-       <div class="form-group">
+       <div class="form-group" >
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Address line 1</label>
     <div class="col-sm-6">
       <input type="text" class="form-control" id="inputPassword3" ng-model="user.currentAddressLineOne" >
@@ -192,7 +189,7 @@
     </div>
   </div>
   
-         <div class="form-group">
+         <div class="form-group" >
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">County</label>
     <div class="col-sm-6">
       <input type="text" class="form-control" id="inputPassword3" ng-model="user.currentAddressCounty" >
@@ -200,7 +197,7 @@
     </div>
   </div>
   
-      <div class="form-group">
+      <div class="form-group" >
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Time at address</label>
     <div class="col-sm-6">
 
@@ -246,9 +243,16 @@
     </div>
   </div>
   <hr>
+      <div class="form-group">
+   <div class="checkbox"  >
+    <label class="col-sm-10 col-sm-offset-1">
+      <input type="checkbox" > I Agree, to lrepn ipsum lorepnijshfh hdfhdfhfdhdhfdh jnsfjhfshjfhfshfhj fjfjfjfj kjsfjnsdnjvdsjn
+    </label>
+  </div>
+  </div>
   <div class="form-group">
     <div class="col-sm-4 col-sm-offset-3">
-      <button type="submit" class="btn btn-cta-primary btn-lg btn-block" id="next-btn">Next</button>
+      <button type="submit" class="btn btn-cta-primary btn-lg btn-block" id="next-btn" ng-click="register()">Next</button>
     </div>
     
     <div class="col-sm-2" id="spinning-loader">
