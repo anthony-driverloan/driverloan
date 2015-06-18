@@ -2,17 +2,19 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1 class="page-header-blue">Tell us about yourself</h1>
-      <p class="lead">Make sure you have your vehicle's logbook with you durgin the application process.</p>
+      <h1 class="page-header-blue">You can borrow up to £2500</h1>
+      <p class="form-header" style="text-align:left" id="page-info">We need some personal information about you to carry out a credit check*</p>
     </div>
   </div>
   </div>
   
   
   <!-- ******Application progress****** -->
-  <div class="container">
+  <div class="container hidden-xs">
   <div ng-include="'components/application-progress/application-progress-one.html'"></div>
   </div>
+  
+  
   
    <div class="container">
  <div class="row">
@@ -26,13 +28,11 @@
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Title</label>
     <div class="col-sm-6">
 
-       <select class="form-control" ng-model="user.title" >
+       <select class="form-control" ng-model="user.title" ng-options="title.value for title in titles" >
          
    
-         <option value="Mr">Mr</option>
-          <option value="Mrs">Mrs</option>
-           <option value="Miss">Miss</option>
-            <option value="Ms">Ms</option>
+         <option value="">--Please Select--</option>
+        
 
 </select> 
       
@@ -62,43 +62,38 @@
     </div>
   </div>
       <div class="form-group">
-    <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Date of birth</label>
-    <div class="col-sm-2">
-         <select class="form-control" ng-model="user.dobDay" >
+    <label for="inputEmail3" class="col-sm-3  col-xs-12 control-label" style="margin-top:12px">Date of birth</label>
+    <div class="col-sm-2 col-xs-4">
+         <select class="form-control" ng-model="user.dobDay" ng-options="dobDay.name for dobDay in birthDays" >
          
    
-         <option value=1>Mr</option>
-          <option value=2>Mrs</option>
-           <option value="Miss">Miss</option>
-            <option value="Ms">Ms</option>
+         <option value="">--</option>
+   
 
 </select> 
       
 
     </div>
-      <div class="col-sm-2">
-             <select class="form-control" ng-model="user.dobMonth" >
+      <div class="col-sm-2 col-xs-4">
+     <select class="form-control" ng-model="user.dobMonth" ng-options="dobMonth.name for dobMonth in birthMonths" >
          
    
-         <option value=1>Mr</option>
-          <option value=2>Mrs</option>
-           <option value=3>Miss</option>
-            <option value=4>Ms</option>
+         <option value="">--</option>
+   
 
 </select> 
       
 
     </div>
-         <div class="col-sm-2">
-         <select class="form-control" ng-model="user.dobYear" >
+         <div class="col-sm-2 col-xs-4">
+     <select class="form-control" ng-model="user.dobYear" ng-options="dobYear.name for dobYear in birthYears" >
          
    
-         <option value=1990>Mr</option>
-          <option value=1991>Mrs</option>
-           <option value="Miss">Miss</option>
-            <option value="Ms">Ms</option>
+         <option value="">--</option>
+   
 
 </select> 
+       
     </div>
      
   </div>
@@ -112,21 +107,19 @@
 
     </div>
   </div>
-  <hr>
-       <p class="form-header">Address details</p>
+  <hr class="hidden-xs">
+       <p class="form-header mobile-form-header">Address details</p>
      <hr>
      
        <div class="form-group">
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Residence status</label>
     <div class="col-sm-6">
 
-       <select class="form-control" ng-model="user.residenceStatus" >
+       <select class="form-control" ng-model="user.residenceStatus" ng-options="residenceStatus.name for residenceStatus in residenceStatuses" >
          
    
-         <option value="Mr">Mr</option>
-          <option value="Mrs">Mrs</option>
-           <option value="Miss">Miss</option>
-            <option value="Ms">Ms</option>
+         <option value="">--</option>
+   
 
 </select> 
       
@@ -143,19 +136,19 @@
     </div>
     
      <div class="col-sm-3">
-      <button class="btn btn-cta-primary btn-block btn-add" ng-click="findAddress()">Find address</button>
+      <button class="btn btn-cta-primary btn-block btn-add" ng-click="findAddress()" id="find-address">Find address</button>
 
     </div>
   </div>
   
-    <div class="form-group">
-    <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Select address</label>
-    <div class="col-sm-6">
+    <div class="form-group" ng-show="addressIsSelected" id="selectAddress">
+    <label for="inputEmail3" class="col-sm-3 col-sm-offset-1  control-label" style="margin-top:12px">Select address</label>
+    <div class="col-sm-4">
 
-       <select class="form-control" ng-model="user.title" >
+       <select class="form-control" ng-model="addressSelected" ng-options="addressFound.line_1 for addressFound in addresses" ng-change="hideSelectAddress()">
          
    
-     <option ng-repeat="addressFound in addresses">{{addressFound.line_1}}</option>
+<option value="">--Please Select--</option>
 
 </select> 
       
@@ -165,49 +158,47 @@
   </div>
   
   
-       <div class="form-group" >
+       <div class="form-group"  ng-show="addressIsSelected" >
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Address line 1</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="inputPassword3" ng-model="user.currentAddressLineOne" >
+      <input type="text" class="form-control" id="addressLineOne" ng-model="addressLineOne"  value="{{addressSelected.line_1}}">
 
     </div>
   </div>
   
-         <div class="form-group">
+         <div class="form-group" ng-show="addressIsSelected" >
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Address line 2</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="inputPassword3" ng-model="user.currentAddressLineTwo" >
+      <input type="text" class="form-control" id="inputPassword3" value="{{addressSelected.line_2}}" >
 
     </div>
   </div>
   
-         <div class="form-group">
+         <div class="form-group" ng-show="addressIsSelected" >
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Town/city</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="inputPassword3" ng-model="user.currentAddressTown" >
+      <input type="text" class="form-control" id="inputPassword3" value="{{addressSelected.post_town}}" >
 
     </div>
   </div>
   
-         <div class="form-group" >
+         <div class="form-group" ng-show="addressIsSelected"  >
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">County</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="inputPassword3" ng-model="user.currentAddressCounty" >
+      <input type="text" class="form-control" id="inputPassword3" value="{{addressSelected.county}}" >
 
     </div>
   </div>
   
-      <div class="form-group" >
+      <div class="form-group" ng-show="addressIsSelected"  >
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Time at address</label>
     <div class="col-sm-6">
 
-       <select class="form-control" ng-model="user.title" >
+    <select class="form-control" ng-model="user.timeAtAddress" ng-options="timeAtAddress.value for timeAtAddress in timeAtAddressValues" >
          
    
-         <option value="Mr">Mr</option>
-          <option value="Mrs">Mrs</option>
-           <option value="Miss">Miss</option>
-            <option value="Ms">Ms</option>
+         <option value="">--</option>
+   
 
 </select> 
       
@@ -215,8 +206,8 @@
     
     
   </div>
-  <hr>
-     <p class="form-header">Create account</p>
+  <hr class="hidden-xs">
+     <p class="form-header mobile-form-header">Create account</p>
      <hr>
   
     <div class="form-group">
@@ -243,25 +234,27 @@
     </div>
   </div>
   <hr>
-      <div class="form-group">
-   <div class="checkbox"  >
-    <label class="col-sm-10 col-sm-offset-1">
-      <input type="checkbox" > I Agree, to lrepn ipsum lorepnijshfh hdfhdfhfdhdhfdh jnsfjhfshjfhfshfhj fjfjfjfj kjsfjnsdnjvdsjn
+      <div class="form-group" style="padding-bottom:5px">
+   <div class="checkbox">
+    <label class="col-sm-10 col-sm-offset-1 col-xs-12">
+      <input type="checkbox" > Tick this box to indicate that you have read our <a href="">Terms and conditions</a> & <a href="">Privacy Policy</a>.
     </label>
   </div>
   </div>
-  <div class="form-group">
-    <div class="col-sm-4 col-sm-offset-3">
+
+  <hr>
+  <div class="form-group" style="margin-top:20px">
+    <div class="col-sm-4 col-sm-offset-4">
       <button type="submit" class="btn btn-cta-primary btn-lg btn-block" id="next-btn" ng-click="register()">Next</button>
     </div>
     
-    <div class="col-sm-2" id="spinning-loader">
-      <p id="loader" ></p>
-    </div>
+
   </div>
 </form>
      
    </div>
+   
+   
    
  </div>
   </div>

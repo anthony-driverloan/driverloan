@@ -15,7 +15,7 @@ angular.module('driverloanV1App')
         })
         .then( function() {
           // Logged in, redirect to home
-          $location.path('/');
+          $location.path('/your_loan/summary');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;

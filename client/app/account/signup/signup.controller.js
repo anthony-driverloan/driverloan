@@ -10,17 +10,53 @@ angular.module('driverloanV1App')
     
     $scope.selectAddress = false;
     
+    $scope.addressSelected = '';
+    
      $scope.address = {};
         $scope.addresses = null;
+        
+        $scope.addressIsselected = false;
+        
+      
+        
+        /* Select Values */
+        
+        $scope.titles = [{value:'Mr'},{value:'Mrs'},{value:'Miss'},{value:'Ms'}];
+        
+        
+        
+        $scope.birthDays = [{name:1},{name:2},{name:3},{name:4}];
     
-    
+     $scope.birthMonths = [{name:1},{name:2},{name:3},{name:4},{name:5},{name:6},{name:7},{name:8},{name:9},{name:10},{name:11},{name:12}];
+     
+          $scope.birthYears = [{name:1990},{name:1992},{name:1933},{name:1974}];
+          
+          $scope.residenceStatuses = [{name:'Living with parents'}];
+          
+          $scope.timeAtAddressValues = [{value:'1 year +'}];
+          
+          
+
+          
+          
     
     $scope.findAddress = function(){
       
               $http.post('/api/postcodes',{postcode:$scope.address.postcode})
 .success(function(data){
-  
+   $('#selectAddress').show();
+  $scope.addressIsSelected = true;
   $scope.addresses = data;
+  
+  
+
+  
+  $scope.hideSelectAddress = function(){
+      $('#selectAddress').hide();
+      console.log($scope.addressLineOne);
+    
+  }
+
  
   console.log($scope.addresses);
 })
@@ -34,6 +70,8 @@ angular.module('driverloanV1App')
      
 
     $scope.register = function() {
+      
+      $location.path('new_loan/loan_details');
       $scope.submitted = true;
       
 var opts = {
@@ -64,41 +102,33 @@ var spinner = new Spinner(opts).spin(target);
 
 
 
-$('#next-btn').prop('disabled', true);
+// $('#next-btn').prop('disabled', true);
+
+console.log($scope.user.title.value + $scope.user.dobDay.name);
 
         Auth.createUser({
-          title: $scope.user.title,
+          title: $scope.user.title.value,
           fName: $scope.user.fName,
           mInitials: $scope.user.mInitials,
           lName: $scope.user.lName,
-          dobDay: $scope.user.dobDay,
-          dobMonth: $scope.user.dobMonth,
-          dobYear: $scope.user.dobYear,
+          dobDay: $scope.user.dobDay.name,
+          dobMonth: $scope.user.dobMonth.name,
+          dobYear: $scope.user.dobYear.name,
           mobileNumber: $scope.user.mobileNumber,
-          residenceStatus: $scope.user.residenceStatus,
-          currentAddressPostcode: $scope.address.postcode,
-          currentAddressLineOne: $scope.user.currentAddressLineOne,
+          residenceStatus: 'Living with parents',
+          currentAddressPostcode: 'ig11 0ua',
+          currentAddressLineOne: '7 morrison road',
           currentAddressLineTwo: $scope.user.currentAddressLineTwo,
-          currentAddressTown: $scope.user.currentAddressTown,
-          currentAddressCounty: $scope.user.currentAddressCounty,
+          currentAddressTown: 'barking',
+          currentAddressCounty: 'essex',
           email: $scope.user.email,
           password: $scope.user.password
         })
         .then( function() {
           // Account created, redirect to home
           $location.path('/new_loan/your_vehicle');
-        })
-        .catch( function(err) {
-          err = err.data;
-          $scope.errors = {};
-
-          // Update validity of form fields that match the mongoose errors
-          angular.forEach(err.errors, function(error, field) {
-            form[field].$setValidity('mongoose', false);
-            $scope.errors[field] = error.message;
-          });
         });
-      }
+      };
  
 
   });

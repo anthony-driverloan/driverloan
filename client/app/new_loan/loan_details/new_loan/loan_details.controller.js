@@ -20,12 +20,15 @@ angular.module('driverloanV1App')
            $http.post('/api/loanRequests',$scope.loan)
 .success(function(data){
   
- $location.path('/new_loan/upload_documents');
+ $location.path('/new_loan/confirm');
   console.log(data)
 })
 .error(function(data){
   console.log(data)
 });
+
+
+
 
     }
    

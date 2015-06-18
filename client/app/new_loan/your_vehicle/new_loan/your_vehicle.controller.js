@@ -9,7 +9,7 @@ angular.module('driverloanV1App')
     $scope.newVehicle = function(form){
       
  
-          
+          $location.path('/apply/personal_details');
     var opts = {
   lines: 13 // The number of lines to draw
 , length: 12 // The length of each line
