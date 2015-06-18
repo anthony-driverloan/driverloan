@@ -24,7 +24,8 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   Vehicle.create(req.body, function(err, vehicle) {
     if(err) { return handleError(res, err); }
-    return res.json(201, vehicle);
+console.log('hello world');    
+return res.json(201, vehicle);
   });
 };
 
