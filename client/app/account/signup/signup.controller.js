@@ -71,7 +71,7 @@ angular.module('driverloanV1App')
 
     $scope.register = function() {
       
-      $location.path('new_loan/loan_details');
+      $location.path('apply/loan_details');
       $scope.submitted = true;
       
 var opts = {

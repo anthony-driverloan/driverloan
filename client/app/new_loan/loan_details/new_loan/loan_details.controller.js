@@ -9,7 +9,7 @@ angular.module('driverloanV1App')
     
     $scope.loanRequest = function(){
            
-             $location.path('/new_loan/confirm');
+             $location.path('/apply/confirm');
             var user = Auth.getCurrentUser();
             
             console.log(user.mobileNumber);
