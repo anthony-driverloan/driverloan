@@ -173,3 +173,5 @@
 >>>>>>> 333bc099802651e9e970d4d54e78c31bc8f794e5
 {"v":0,"level":30,"name":"newrelic","hostname":"Anthonys-MacBook-Air.local","pid":4682,"time":"2015-06-23T19:14:27.502Z","msg":"Starting New Relic for Node.js connection process."}
 {"v":0,"level":40,"name":"newrelic","hostname":"Anthonys-MacBook-Air.local","pid":4682,"time":"2015-06-23T19:14:29.178Z","msg":"Unrecognized version NaN of Express detected; not instrumenting","component":"express"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Anthonys-MacBook-Air.local","pid":4682,"time":"2015-06-23T19:14:38.430Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/1019311/applications/9158854","component":"new_relic_response"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Anthonys-MacBook-Air.local","pid":4682,"time":"2015-06-23T19:14:38.431Z","msg":"Connected to collector-134.newrelic.com:443 with agent run ID 39336987213377776.","component":"collector_api"}
