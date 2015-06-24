@@ -6,7 +6,7 @@ var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
 var sendgrid = require('sendgrid')('driverloans','june1290');
 var fs = require('fs');
-var content = fs.readFileSync( __dirname + '/welcome.html');
+
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -39,15 +39,15 @@ exports.create = function (req, res, next) {
     var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
     
     
-    sendgrid.send({
-  to:       req.body.email,
-  from:     'mail@driverloan.co.uk',
-  subject:  'New Loan Application',
-  html: content
-}, function(err, json) {
-  if (err) { return console.error(err); }
-  console.log(json);
-});
+//     sendgrid.send({
+//   to:       req.body.email,
+//   from:     'mail@driverloan.co.uk',
+//   subject:  'New Loan Application',
+//   html: content
+// }, function(err, json) {
+//   if (err) { return console.error(err); }
+//   console.log(json);
+// });
     
     
     
