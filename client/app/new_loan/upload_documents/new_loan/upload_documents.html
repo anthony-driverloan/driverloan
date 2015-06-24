@@ -3,14 +3,14 @@
   <div class="row">
     <div class="col-sm-12">
       <h1 class="page-header-blue">Your Loan has been approved.</h1>
-      <p class="form-header" style="text-align:left">We need to have a quick chat with you before we payout your Loan.</p>
+      <p class="form-header" style="text-align:left" id="page-info">We need to have a quick chat with you before we payout your Loan.</p>
     </div>
   </div>
   </div>
   
   
   <!-- ******Application progress****** -->
-  <div class="container">
+  <div class="container hidden-xs">
   <div ng-include="'components/application-progress/application-progress-four.html'"></div>
   </div>
   
@@ -23,6 +23,7 @@
 
       <div class="row" style="text-align:center">
         <p class="form-header"  style="margin-top:10px" >When is the best time to call you?</p>
+        <hr>
       </div>
       
              <div class="form-group">
@@ -36,7 +37,7 @@
     </div>
         <div class="col-sm-4">
 
-<button class="btn btn-cta-primary form-control" ng-click="arrangeCall()">Request Phone Call</button>
+      <button class="btn btn-cta-primary btn-block btn-add" ng-click="arrangeCall()" id="find-address">Request Phone Call</button>
     </div>
   </div>
   
@@ -53,9 +54,21 @@
       </div>
       
       <hr>
+        <div class="row" style="text-align:center">
+        <p style="color:#0e83cd" >Make sure you read the following documents before signing the agreement</p>
+               <p  >A Smartphone </p>
+                <p  >Vehicle Logbook ( V5 Registration Document )</p>
+
+              <p  >Payslip or Bank Statement </p>
+               <p  >Full UK Driving Licence </p>
+            
+        
+      </div>
+      
+      <hr>
                     <p  class="form-header"  style="margin-top:10px">After the phone call you may be able to sign your  loan agreement</p>
       <div class="row" style="text-align:center">
-              <button class="btn btn-cta-primary btn-lg " disabled="disabled" >Sign Loan Agreement</button>
+              <button class="btn btn-cta-primary btn-lg " disabled="disabled" >Sign Agreement</button>
       </div>
 
       
@@ -67,7 +80,13 @@
  </div>
   </div>
   
-  
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-8" style="text-align:right;margin-top:10px">
+        <img src="http://i59.tinypic.com/wirfc6.gif" alt="">
+      </div>
+    </div>
+  </div>
   
 </div>
 

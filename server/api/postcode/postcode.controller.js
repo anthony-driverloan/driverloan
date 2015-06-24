@@ -4,7 +4,7 @@ var _ = require('lodash');
 var Postcode = require('./postcode.model');
 
 //mask api key with process.env when deploying to heroku
-var idealPostcodes = require('ideal-postcodes')('ak_i55didehbWAzgenlm0rF4uYnXnrmj'); 
+var idealPostcodes = require('ideal-postcodes')('ak_ibao0p7kwvfjlC2LQ6eCJxH3BRmF6'); 
 
 // Get list of postcodes
 exports.sendAddress = function(req, res) {
