@@ -14,6 +14,8 @@ angular.module('driverloanV1App', [
     $httpProvider.interceptors.push('authInterceptor');
   })
 
+  .value('vehicleValue', {value:5000})
+
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
     return {
       // Add authorization token to headers
