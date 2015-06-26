@@ -1,15 +1,21 @@
 'use strict';
 
 angular.module('driverloanV1App')
-  .controller('SignupCtrl', function ($scope, vehicleValue, Auth, $location, $http) {
+  .controller('SignupCtrl', function ($scope, Auth, $location, $http, $cookies) {
 
-    console.log(vehicleValue);
+   $scope.loading = false; // start loading
+    var vehicleCookie = $cookies.get('vehicle');
 
-    $scope.getCurrentUser = null;
 
-    $scope.vehicle = {
-    value:vehicleValue
-    };
+    // Simple GET request example :
+  $http.get('/api/vehicles/' + vehicleCookie).
+    success(function(data, status, headers, config) {
+    $scope.vehicle = data;
+    }).
+    error(function(data, status, headers, config) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });
 
 
     $scope.user = {};
@@ -48,9 +54,10 @@ angular.module('driverloanV1App')
 
 
     $scope.findAddress = function(){
-
+   $scope.loading = true; // start loading
               $http.post('/api/postcodes',{postcode:$scope.address.postcode})
 .success(function(data){
+   $scope.loading = false; // start loading
    $('#selectAddress').show();
   $scope.addressIsSelected = true;
   $scope.addresses = data;

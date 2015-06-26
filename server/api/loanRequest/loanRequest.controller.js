@@ -29,12 +29,12 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   LoanRequest.create(req.body, function(err, loanRequest) {
     if(err) { return handleError(res, err); }
-    
-    
+
+
     var phoneNumber = req.body.phoneNumber;
-    
+
     console.log(phoneNumber);
-    
+
     client.messages.create({
     to:phoneNumber,
     from:'+441143031520',
@@ -45,7 +45,7 @@ exports.create = function(req, res) {
     }
 });
     return res.json(201, loanRequest);
-    
+
   });
 };
 

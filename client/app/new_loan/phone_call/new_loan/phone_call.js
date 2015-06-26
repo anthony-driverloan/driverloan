@@ -6,6 +6,7 @@ angular.module('driverloanV1App')
       .state('apply/phone_call', {
         url: '/apply/phone_call',
         templateUrl: 'app/new_loan/phone_call/new_loan/phone_call.html',
-        controller: 'NewLoanPhoneCallCtrl'
+        controller: 'NewLoanPhoneCallCtrl',
+        authenticate: true
       });
   });

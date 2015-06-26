@@ -9,8 +9,8 @@ var LoanRequestSchema = new Schema({
   loanPurpose: {type: String, required: true},
   monthlyPayments: {type:Number, required: true, default:163.34},
   totalPayment: {type:Number, required:true, default:2000},
-  decision: {type:String, required:true, default: 'processing'},
-  // userId: {type:Schema.Types.ObjectId, required:true}
+  status: {type:String, required:true, default: 'processing'},
+  userId: {type:Schema.Types.ObjectId, required:true}
 });
 
 module.exports = mongoose.model('LoanRequest', LoanRequestSchema);

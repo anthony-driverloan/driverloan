@@ -39,7 +39,7 @@
   <div class="form-group">
   <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Amount</label>
   <div class="col-sm-6">
-    <select class="form-control" ng-model="loan.amount" ng-options="amount.value for amount in loanSelect" >
+    <select class="form-control" ng-model="loan.amount" ng-options="amount.value for amount in loanSelect">
 
       <option value="">--Please Select--</option>
 
@@ -51,7 +51,7 @@
     <div class="form-group">
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Term</label>
     <div class="col-sm-6">
-      <select class="form-control" ng-model="loan.term" ng-options="term.value for term in loanTerm" >
+      <select class="form-control" ng-model="loan.term" ng-options="term.value for term in loanTerm">
 
         <option value="">--Please Select--</option>
 
@@ -86,7 +86,7 @@
 
   <div class="form-group">
     <div class="col-sm-4 col-sm-offset-4">
-      <button type="submit" class="btn btn-cta-primary btn-lg btn-block" id="next-btn">Next</button>
+      <button type="submit" ladda="loading" class="btn btn-cta-primary btn-lg btn-block" id="next-btn" data-style="zoom-in">Next</button>
     </div>
 
 

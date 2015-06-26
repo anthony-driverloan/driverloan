@@ -6,6 +6,7 @@ angular.module('driverloanV1App')
       .state('apply/confirm', {
         url: '/apply/confirm',
         templateUrl: 'app/new_loan/upload_documents/new_loan/upload_documents.html',
-        controller: 'NewLoanUploadDocumentsCtrl'
+        controller: 'NewLoanUploadDocumentsCtrl',
+        authenticate: true
       });
   });

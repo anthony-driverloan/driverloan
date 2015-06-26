@@ -1,32 +1,46 @@
 'use strict';
 
 angular.module('driverloanV1App')
-  .controller('NewLoanLoanDetailsCtrl', function ($scope, $location, $http, vehicleValue) {
-    $scope.message = 'Hello';
+  .controller('NewLoanLoanDetailsCtrl', function ($scope, $location, $http, $cookies, Auth) {
+    var vehicleCookie = $cookies.get('vehicle');
+
+
+
+    // Simple GET request example :
+  $http.get('/api/vehicles/' + vehicleCookie).
+    success(function(data, status, headers, config) {
+      var loanSelectArray = [];
+          var test = data.value;
+
+          var i = 300;
+
+
+          for (var i; i != test; i += 50) {
+              console.log(i);
+              //Do something
+
+              loanSelectArray.push({value:'£ '+i});
+
+          }
+
+          loanSelectArray.push({value:'£ '+test});
+          $scope.loanSelect = loanSelectArray;
+
+    }).
+    error(function(data, status, headers, config) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });
 
     $scope.loan = {};
 
-    var loanSelectArray = [];
 
-    var createLoanValues = function(){
-      var i = 500;
-      var test = vehicleValue.value;
 
-      for (var i; i != test; i += 250) {
-          console.log(i);
-          //Do something
-
-          loanSelectArray.push({value:'£ '+i});
-
-      }
-    }
 
     $scope.loanPurpose = [{value:"Debt Consolidation"},{value:"Car/Vehicle"},{value:"Home Improvements"},{value:"Wedding"},{value:"Small Business"},{value:"Other"}];
 
-  createLoanValues();
-  loanSelectArray.push({value:'£ '+vehicleValue.value});
-  $scope.loanSelect = loanSelectArray;
-    console.log(loanSelectArray);
+
+
 
     $scope.loanTerm = [{value:'6 months'},{value:'12 months'},{value:'18 months'},{value:'24 months'}];
 

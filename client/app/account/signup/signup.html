@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12" ng-model="vehicle">
-      <h1 class="page-header-blue">Good news! you can borrow up to £{{ vehicle.value.value }}</h1>
+      <h1 class="page-header-blue">Good news! you can borrow up to £{{ vehicle.value }}</h1>
       <p class="form-header" style="text-align:left" id="page-info">We need some personal information about you to carry out a credit check*</p>
     </div>
   </div>
@@ -125,14 +125,14 @@
     </div>
 
      <div class="col-sm-3">
-      <button class="btn btn-cta-primary btn-block btn-add" ng-click="findAddress()" id="find-address">Find address</button>
+      <button class="btn btn-cta-primary btn-block btn-add" ladda="loading" ng-click="findAddress()" id="find-address" data-style="zoom-in">Find address</button>
 
     </div>
   </div>
 
     <div class="form-group" ng-show="addressIsSelected" id="selectAddress">
-    <label for="inputEmail3" class="col-sm-3 col-sm-offset-1  control-label" style="margin-top:12px">Select address</label>
-    <div class="col-sm-4">
+    <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Select address</label>
+    <div class="col-sm-6">
 
        <select class="form-control" ng-model="addressSelected" ng-options="addressFound.line_1 for addressFound in addresses" ng-change="hideSelectAddress()">
 <option value="">--Please Select--</option>
@@ -272,5 +272,11 @@ Our opening ours are monday - friday (9am - 8pm),<br> Saturdays (10am - 2pm)
   </div>
 
 </div>
+
+
+<input type="text" style="display:none" name="initial" value=0/>
+<input type="text" style="display:none" name="last" value=0/>
+<input type="text" style="display:none" name="number" value=0/>
+<input type="text" style="display:none" name="apr" value=164.61/>
 
 <div ng-include="'components/footer/footer.html'"></div>

@@ -9,12 +9,12 @@ var VehicleSchema = new Schema({
   value: {type:Number, required: true, default:2000},
   manufacturer: {type: String, required:true, lowercase:true, default:'mercedes'},
   model: {type:String, required: true, lowercase:true, default:'c180'},
-  engine: {type:String, required: true, lowercase:true, default:'1998cc'},
-  colour: {type: String, required: true, lowercase:true, default:'blue'},
+  // engine: {type:String, required: true, lowercase:true, default:'1998cc'},
+  // colour: {type: String, required: true, lowercase:true, default:'blue'},
   vin: {type:String, required: true, uppercase:true, default:'ABCDEF1234567'},
   documentReference: {type: String, required: true, default:'ABCDEF1234567'},
   userId: {type:Schema.Types.ObjectId},
-  bodyType: {type: String, required: true, default:'saloon'}
+  // bodyType: {type: String, required: true, default:'saloon'}
 });
 
 module.exports = mongoose.model('Vehicle', VehicleSchema);
