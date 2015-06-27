@@ -10,6 +10,8 @@ angular.module('driverloanV1App')
 
   $scope.financeoptions = [{value:"There is no outstanding finance"},{value:"The vehicle is on finance"}];
 
+  $scope.insuranceoptions = [{value:"Fully Comprehensive"},{value:"Third party only"},{value:"None"}];
+
 
     $scope.newVehicle = function(form){
             $('#next-btn').prop('disabled', true);

@@ -2,6 +2,9 @@
 
 angular.module('driverloanV1App')
   .controller('NewLoanLoanDetailsCtrl', function ($scope, $location, $http, $cookies, Auth) {
+
+        $scope.loan = {};
+
     var vehicleCookie = $cookies.get('vehicle');
 
 
@@ -19,11 +22,11 @@ angular.module('driverloanV1App')
               console.log(i);
               //Do something
 
-              loanSelectArray.push({value:'£ '+i});
+              loanSelectArray.push({value:'£'+i});
 
           }
 
-          loanSelectArray.push({value:'£ '+test});
+          loanSelectArray.push({value:'£'+test});
           $scope.loanSelect = loanSelectArray;
 
     }).
@@ -32,7 +35,21 @@ angular.module('driverloanV1App')
       // or server returns response with an error status.
     });
 
-    $scope.loan = {};
+
+    $scope.repayment = function(){
+
+        $http.post('/api/loanRepayments', {credit: $scope.loan.amount,term: $scope.loan.term})
+        .success(function(data){
+          console.log(data);
+        })
+        .error(function(data){
+          // do something
+        })
+
+    }
+
+
+
 
 
 
