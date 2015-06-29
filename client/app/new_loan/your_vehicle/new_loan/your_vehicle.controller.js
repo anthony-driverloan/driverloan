@@ -42,13 +42,11 @@ $http({
         }
     }).success(function(response) {
       var vehicleValue = Math.round(response.data.borrow / 100) * 100
-      $http.post('/api/vehicles',{registration:$scope.vehicle.registration,mileage:$scope.vehicle.mileage,value:vehicleValue,manufacturer:response.data.make,model:response.data.model})
+      $http.post('/api/vehicles',{registration:$scope.vehicle.registration,mileage:$scope.vehicle.mileage,value:vehicleValue,manufacturer:response.data.make,model:response.data.model,insurance:$scope.vehicle.insurance.value})
       .success(function(data){
 
         $cookies.put('vehicle', data._id);
 
-
-        console.log(data.value);
 
           $location.path('/apply/personal_details');
       })
@@ -56,7 +54,7 @@ $http({
         console.log(data)
       });
 
-          console.log(response.data);
+
 
 
         });

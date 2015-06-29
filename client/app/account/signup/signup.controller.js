@@ -55,8 +55,9 @@ angular.module('driverloanV1App')
 
     $scope.findAddress = function(){
    $scope.loading = true; // start loading
-              $http.post('/api/postcodes',{postcode:$scope.address.postcode})
+              $http.post('https://www.amigoloans.co.uk/Address/Search',{postcode:$scope.address.postcode})
 .success(function(data){
+  console.log(data);
    $scope.loading = false; // start loading
    $('#selectAddress').show();
   $scope.addressIsSelected = true;
