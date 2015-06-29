@@ -22,11 +22,11 @@ angular.module('driverloanV1App')
               console.log(i);
               //Do something
 
-              loanSelectArray.push({value:'£'+i});
+              loanSelectArray.push({value:i});
 
           }
 
-          loanSelectArray.push({value:'£'+test});
+          loanSelectArray.push({value:test});
           $scope.loanSelect = loanSelectArray;
 
     }).
@@ -38,9 +38,10 @@ angular.module('driverloanV1App')
 
     $scope.repayment = function(){
 
-        $http.post('/api/loanRepayments', {credit: $scope.loan.amount,term: $scope.loan.term})
+        $http.post('/api/loanRepayments', {credit: $scope.loan.amount.value,term: $scope.loan.term.value})
         .success(function(data){
           console.log(data);
+          $scope.repaymentValue = data.value;
         })
         .error(function(data){
           // do something
@@ -59,7 +60,7 @@ angular.module('driverloanV1App')
 
 
 
-    $scope.loanTerm = [{value:'6 months'},{value:'12 months'},{value:'18 months'},{value:'24 months'}];
+    $scope.loanTerm = [{value:6},{value:12},{value:18},{value:24}];
 
 
     $scope.loanRequest = function(){

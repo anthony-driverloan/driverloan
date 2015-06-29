@@ -37,9 +37,9 @@
   </div>
 
   <div class="form-group">
-  <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Amount</label>
+  <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Amount (£)</label>
   <div class="col-sm-6">
-    <select class="form-control" ng-model="loan.amount" ng-options="amount.value for amount in loanSelect" ng-change="repayment()">
+    <select class="form-control" ng-model="loan.amount" ng-options="amount.value for amount in loanSelect">
 
       <option value="">--Please Select--</option>
 
@@ -49,7 +49,7 @@
 </div>
 
     <div class="form-group">
-    <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Term</label>
+    <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Term (months)</label>
     <div class="col-sm-6">
       <select class="form-control" ng-model="loan.term" ng-options="term.value for term in loanTerm" ng-change="repayment()">
 
@@ -60,7 +60,7 @@
     </div>
   </div>
 
-     <p class="form-header" style="margin-top:20px">Your monthly repayment is £169.45</p>
+     <p class="form-header" style="margin-top:20px" ng-model="repaymentValue">Your monthly repayment is £{{ repaymentValue}}</p>
 
 
 
