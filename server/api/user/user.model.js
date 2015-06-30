@@ -27,6 +27,7 @@ var UserSchema = new Schema({
   previousAddressPostcode: { type: String, lowercase: true },
   workNumber: { type: String, lowercase: true },
   homeNumber: { type: String, lowercase: true },
+  vehicleId:{type:Schema.Types.ObjectId},
   role: {
     type: String,
     default: 'user'

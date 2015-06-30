@@ -5,6 +5,20 @@ angular.module('driverloanV1App')
 
         $scope.loan = {};
 
+        $scope.loan.amount=200;
+
+        $scope.loanSelected = false;
+
+        var user = Auth.getCurrentUser();
+
+        console.log(user._id);
+
+        $scope.loan.userId = user._id;
+
+        $scope.loan.totalPayment = null;
+
+        $scope.loan.monthlyPayments = null;
+
     var vehicleCookie = $cookies.get('vehicle');
 
 
@@ -40,8 +54,20 @@ angular.module('driverloanV1App')
 
         $http.post('/api/loanRepayments', {credit: $scope.loan.amount.value,term: $scope.loan.term.value})
         .success(function(data){
+          $scope.loanSelected = true;
           console.log(data);
           $scope.repaymentValue = data.value;
+          var loanTerm = data.value * $scope.loan.term.value;
+
+            $scope.loan.monthlyPayments = data.value;
+
+          console.log($scope.loan.term);
+          $scope.loan.totalPayment = (loanTerm).toFixed(2);
+          console.log($scope.loan);
+
+
+
+
         })
         .error(function(data){
           // do something
@@ -65,7 +91,6 @@ angular.module('driverloanV1App')
 
     $scope.loanRequest = function(){
 
-             $location.path('/apply/confirm');
             var user = Auth.getCurrentUser();
 
             console.log(user.mobileNumber);
@@ -73,15 +98,24 @@ angular.module('driverloanV1App')
             var mobile = user.mobileNumber.slice(1);
             console.log($scope.loan);
 
-           $http.post('/api/loanRequests',$scope.loan)
-.success(function(data){
+            $scope.loan.userId = user._id;
 
 
-  console.log(data)
-})
-.error(function(data){
-  console.log(data)
-});
+
+
+             $http.post('/api/loanRequests',{loanAmount:$scope.loan.amount.value,loanTerm:$scope.loan.term.value,loanPurpose:$scope.loan.purpose.value,monthlyPayments:$scope.loan.monthlyPayments,totalPayment:$scope.loan.totalPayment,userId:$scope.loan.userId})
+            .success(function(data){
+
+
+                           $location.path('/apply/confirm');
+              console.log(data)
+            })
+            .error(function(data){
+              console.log(data)
+            });
+
+
+
 
 
 

@@ -115,7 +115,8 @@ angular.module('driverloanV1App')
           currentAddressTown: 'barking',
           currentAddressCounty: 'essex',
           email: $scope.user.email,
-          password: $scope.user.password
+          password: $scope.user.password,
+          vehicleId: vehicleCookie
         })
         .then( function() {
 

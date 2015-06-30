@@ -19,7 +19,7 @@
 
    <div class="col-sm-8" >
 
-   <form class="form-horizontal application-form-container" name="form" ng-submit="loanRequest(form)" novalidate>
+   <form class="form-horizontal application-form-container" name="form"  novalidate>
 
      <p class="form-header">Loan details</p>
      <hr>
@@ -60,7 +60,7 @@
     </div>
   </div>
 
-     <p class="form-header" style="margin-top:20px" ng-model="repaymentValue">Your monthly repayment is £{{ repaymentValue}}</p>
+     <p class="form-header" style="margin-top:20px" ng-model="repaymentValue" ng-show="loanSelected">Your monthly repayment is £{{ repaymentValue}}</p>
 
 
 
@@ -86,7 +86,7 @@
 
   <div class="form-group">
     <div class="col-sm-4 col-sm-offset-4">
-      <button type="submit" ladda="loading" class="btn btn-cta-primary btn-lg btn-block" id="next-btn" data-style="zoom-in">Next</button>
+      <button type="submit" ng-click="loanRequest()" ladda="loading" class="btn btn-cta-primary btn-lg btn-block" id="next-btn" data-style="zoom-in">Next</button>
     </div>
 
 

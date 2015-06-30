@@ -5,7 +5,8 @@ angular.module('driverloanV1App', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'angular-ladda'
+  'angular-ladda',
+  '720kb.tooltips'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
