@@ -47,11 +47,11 @@
   <div class="row">
     <div class="col-sm-6">
       <p class="side-header">Your address</p>
-      <p class="side-header">Flat 2</p>
-      <p class="side-header">26 Dover Street</p>
-      <p class="side-header">Hull</p>
-      <p class="side-header">North Humberside</p>
-      <p class="side-header">HU3 1PS</p>
+      <p class="side-header" ng-model="address.lineOne">{{address.lineOne}}</p>
+      <p class="side-header" ng-model="address.lineTwo">{{address.lineTwo}}</p>
+      <p class="side-header" ng-model="address.town">{{address.town}}</p>
+      <p class="side-header" ng-model="address.county">{{address.county}}</p>
+      <p class="side-header" ng-model="address.postcode">{{address.postcode}}</p>
       <a href="">Change Address</a>
     </div>
   </div>
@@ -59,7 +59,7 @@
   <div class="row" style="margin-top:50px">
     <div class="col-sm-6">
       <p class="side-header">Your email</p>
-      <p class="side-header">khamer@live.co.uk</p>
+      <p class="side-header" ng-model="user.email">{{user.email}}</p>
         <a href="">Change email</a>
     </div>
   </div>
@@ -70,7 +70,7 @@
       <p class="side-header">Your contact numbers</p>
       <p class="side-header">Home </p>
 
-      <p class="side-header">Mobile <span style="padding-left:20px">07703587878</span></p>
+      <p class="side-header" ng-model="user.mobile">Mobile <span style="padding-left:20px">{{user.mobile}}</span></p>
       <p class="side-header">Work </p>
 
         <a href="">Change numbers</a>

@@ -5,8 +5,9 @@ var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
 var sendgrid = require('sendgrid')('driverloansceo','Authme1290');
-var fs = require('fs');
-var content = "hi";
+
+
+
 
 
 var validationError = function(res, err) {
@@ -39,18 +40,15 @@ exports.create = function (req, res, next) {
     if (err) return validationError(res, err);
     var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
 
-
     sendgrid.send({
-  to:       req.body.email,
-  from:     'hello@driverloan.co.uk',
-  subject:  'Confirm email address',
-  html: content
-}, function(err, json) {
-  if (err) { return console.error(err); }
-  console.log(json);
-});
-
-
+      to:       req.body.email,
+      from:     'hello@driverloan.co.uk',
+      subject:  'Please confirm your email address',
+      text:     'My first email through SendGrid.'
+    }, function(err, json) {
+      if (err) { return console.error(err); }
+      console.log(json);
+    });
 
     res.json({ token: token });
   });

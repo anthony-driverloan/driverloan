@@ -2,6 +2,8 @@
 
 var _ = require('lodash');
 var Phonecall = require('./phonecall.model');
+var sendgrid = require('sendgrid')('driverloansceo','Authme1290');
+
 
 // Get list of phonecalls
 exports.index = function(req, res) {
@@ -24,6 +26,18 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   Phonecall.create(req.body, function(err, phonecall) {
     if(err) { return handleError(res, err); }
+
+        sendgrid.send({
+      to:       'mranthonyakin@gmail.com',
+      from:     'hello@driverloan.co.uk',
+      subject:  'Confirm email address',
+      html: 'hi'
+    }, function(err, json) {
+      if (err) { return console.error(err); }
+      console.log(json);
+    });
+
+
     return res.json(201, phonecall);
   });
 };

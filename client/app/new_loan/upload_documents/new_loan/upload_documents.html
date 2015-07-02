@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1 class="page-header-blue">Your Loan has been approved.</h1>
+      <h1 class="page-header-blue" ng-model="firstName"><span style="text-transform:capitalize">{{ firstName }}</span>,your Loan has been approved.</h1>
       <p class="form-header" style="text-align:left" id="page-info">We need to have a quick chat with you before we payout your Loan.</p>
     </div>
   </div>
@@ -30,9 +30,8 @@
 
     <div class="col-sm-4 col-sm-offset-2">
 
-   <select name="" id="" class="form-control">
+   <select name="" id="" class="form-control" ng-model="phonecall.callTime" ng-options="availableSlot.value for availableSlot in slots">
      <option value="">--Please Select--</option>
-      <option value="">Today at 15.00</option>
    </select>
     </div>
         <div class="col-sm-4">

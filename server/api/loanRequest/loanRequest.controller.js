@@ -18,7 +18,7 @@ exports.index = function(req, res) {
 
 // Get a single loanRequest
 exports.show = function(req, res) {
-  LoanRequest.findById(req.params.id, function (err, loanRequest) {
+  LoanRequest.findOne(req.body.userId, function (err, loanRequest) {
     if(err) { return handleError(res, err); }
     if(!loanRequest) { return res.send(404); }
     return res.json(loanRequest);
@@ -30,21 +30,7 @@ exports.create = function(req, res) {
   LoanRequest.create(req.body, function(err, loanRequest) {
     if(err) { return handleError(res, err); }
 
-
-    var phoneNumber = req.body.phoneNumber;
-
-    console.log(phoneNumber);
-
-    client.messages.create({
-    to:phoneNumber,
-    from:'+441143031520',
-    body:'Your unique sms link to send your loan documents www.driverloan.co.uk/u'
-}, function(error, message) {
-    if (error) {
-        console.log(error.message);
-    }
-});
-    return res.json(201, loanRequest);
+    return res.json(201, loanRequest)
 
   });
 };
