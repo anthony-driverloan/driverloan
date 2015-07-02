@@ -1268,3 +1268,9 @@
 {"v":0,"level":40,"name":"newrelic","hostname":"Anthonys-Air","pid":1438,"time":"2015-07-02T17:43:55.238Z","msg":"Unrecognized version NaN of Express detected; not instrumenting","component":"express"}
 {"v":0,"level":30,"name":"newrelic","hostname":"Anthonys-Air","pid":1438,"time":"2015-07-02T17:44:09.617Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/1019311/applications/9158854","component":"new_relic_response"}
 {"v":0,"level":30,"name":"newrelic","hostname":"Anthonys-Air","pid":1438,"time":"2015-07-02T17:44:09.619Z","msg":"Connected to collector-134.newrelic.com:443 with agent run ID 40679353504989484.","component":"collector_api"}
+{"v":0,"level":50,"name":"newrelic","hostname":"Anthonys-MacBook-Air.local","pid":947,"time":"2015-07-02T18:14:14.750Z","msg":"Calling metric_data on New Relic failed unexpectedly. Data will be held until it can be submitted:","code":"ECONNRESET","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Anthonys-MacBook-Air.local","pid":947,"time":"2015-07-02T18:14:14.751Z","msg":"Error on submission to New Relic (data held for redelivery):","code":"ECONNRESET"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Anthonys-Air","pid":1614,"time":"2015-07-02T18:27:59.915Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":40,"name":"newrelic","hostname":"Anthonys-Air","pid":1614,"time":"2015-07-02T18:28:01.367Z","msg":"Unrecognized version NaN of Express detected; not instrumenting","component":"express"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Anthonys-Air","pid":1614,"time":"2015-07-02T18:28:19.537Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/1019311/applications/9158854","component":"new_relic_response"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Anthonys-Air","pid":1614,"time":"2015-07-02T18:28:19.538Z","msg":"Connected to collector-134.newrelic.com:443 with agent run ID 40679353505098843.","component":"collector_api"}

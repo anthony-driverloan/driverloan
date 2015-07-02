@@ -29,7 +29,7 @@
 </div>-->
 
         <!-- ******HEADER****** -->
-        <header id="header" class="header navbar-fixed-top">
+        <header id="header" class="header navbar-fixed-top" ng-controller="NavbarCtrl">
             <div class="container">
                 <h1 class="logo pull-left">
                     <a href="/">
@@ -52,9 +52,10 @@
                             <li class="nav-item"><a href="">Questions</a></li>
                                                         <li class="nav-item"><a href="contact.html">Contact us</a></li>
                               <li class="nav-item"><a href="">Logbook Loans</a></li>
+                            <li class="nav-item nav-item-cta last" ng-hide="isLoggedIn()"><a href="/login"  class="btn btn-cta btn-cta-primary" >Log in</a></li>
+                            <li class="nav-item nav-item-cta last" ng-show="isLoggedIn()"><a href="" ng-click="logout()"  class="btn btn-cta btn-cta-primary" >Log out</a></li>
 
-                            <li class="nav-item nav-item-cta last"><a href="/login"  class="btn btn-cta btn-cta-primary" >Log in</a></li>
-                        </ul><!--//nav-->
+                      </ul><!--//nav-->
                     </div><!--//navabr-collapse-->
                 </nav><!--//main-nav-->
             </div><!--//container-->
