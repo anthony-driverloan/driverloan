@@ -14,6 +14,10 @@ angular.module('driverloanV1App')
 
     $scope.phoneCall.userId = user._id;
 
+    $scope.phoneCall.email = user.email;
+
+    $scope.phoneCall.fName = user.fName;
+
     console.log($scope.phoneCall.userId);
 
     var vehicle = $cookies.get('vehicle');

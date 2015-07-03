@@ -3,6 +3,9 @@
 var _ = require('lodash');
 var Phonecall = require('./phonecall.model');
 var sendgrid = require('sendgrid')('driverloansceo','Authme1290');
+var path = require('path');
+var templatesDir  = path.join(__dirname, '..', '..', 'templates');
+var emailTemplates = require('email-templates');
 
 
 // Get list of phonecalls
@@ -27,14 +30,37 @@ exports.create = function(req, res) {
   Phonecall.create(req.body, function(err, phonecall) {
     if(err) { return handleError(res, err); }
 
-        sendgrid.send({
-      to:       'mranthonyakin@gmail.com',
-      from:     'hello@driverloan.co.uk',
-      subject:  'Confirm email address',
-      html: 'hi'
-    }, function(err, json) {
-      if (err) { return console.error(err); }
-      console.log(json);
+    emailTemplates(templatesDir, function(err, template) {
+
+      if (err) {
+        console.log(err);
+      } else {
+
+      var locals = {
+        time: phonecall.callTime,
+        fName: req.body.fName
+      };
+
+        // Send a single email
+        template('phonecall-email', locals, function(err, html, text) {
+          if (err) {
+            console.log(err);
+          } else {
+
+            sendgrid.send({
+              to:       req.body.email,
+              from:     'hello@driverloan.co.uk',
+              fromname: 'Driver Loan',
+              subject:  'Your Loan has been approved',
+              html:     html
+            }, function(err, json) {
+              if (err) { return console.error(err); }
+              console.log(json);
+            });
+
+          }
+        });
+      }
     });
 
 
