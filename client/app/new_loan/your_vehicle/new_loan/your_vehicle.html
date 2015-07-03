@@ -34,13 +34,13 @@
  </select>
     </div>
 
-    <div class="col-sm-1" style="margin-top:13px">
-    <a href="" tooltips tooltip-title="The vehicle must be registered in your name" tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
+    <div class="col-sm-1 hidden-xs" style="margin-top:13px">
+    <a href="" tooltips tooltip-title="The vehicle must be registered in your name and to your home address" tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
     </div>
   </div>
 
     <div class="form-group">
-    <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Finance status</label>
+    <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Finance status </label>
     <div class="col-sm-6">
       <select class="form-control" ng-model="vehicle.finance" ng-options="finance.value for finance in financeoptions" >
 
@@ -48,25 +48,10 @@
 
  </select>
     </div>
-    <div class="col-sm-1" style="margin-top:13px">
-    <a href="" tooltips tooltip-title="The vehicle must be finance free" tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
+    <div class="col-sm-1 hidden-xs" style="margin-top:13px">
+    <a href="" tooltips tooltip-title="Only include loans that are secured on the vehicle. If you used an unsecured loan, or borrowed from a friend/relative to buy the car then click 'finance free'." tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
     </div>
   </div>
-
-  <div class="form-group">
-  <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Insurance type</label>
-  <div class="col-sm-6">
-    <select class="form-control" ng-model="vehicle.insurance" ng-options="insurance.value for insurance in insuranceoptions" >
-
-      <option value="">--Please Select--</option>
-
-</select>
-  </div>
-
-  <div class="col-sm-1" style="margin-top:13px">
-  <a href="" tooltips tooltip-title="The vehicle must have a valid insurance" tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
-  </div>
-</div>
 
     <div class="form-group">
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Registration number</label>
@@ -85,23 +70,14 @@
   </div>
 
   <hr>
-      <div class="form-group" style="padding-bottom:5px">
-   <div class="checkbox">
-    <label class="col-sm-10 col-sm-offset-1 col-xs-12 checkbox-label">
-            <input type="checkbox" > Tick this box to indicate that you are the registered keeper of the vehicle.
-
-    </label>
-  </div>
-  </div>
-  <hr>
         <div class="form-group" style="padding-bottom:5px">
    <div class="checkbox">
-    <label class="col-sm-10 col-sm-offset-1 col-xs-12 checkbox-label">
-      <input type="checkbox" > Tick this box to indicate that you have read our <a href="">Terms and conditions</a> & <a href="">Privacy Policy</a>.
+    <label class="col-sm-10 col-sm-offset-1 col-xs-12 checkbox-label"  id="mobile-declaration">
+      <input type="checkbox"> Tick this box to indicate that you have read our <a href="">Terms and conditions</a> & <a href="">Privacy Policy</a>.
     </label>
   </div>
   </div>
-  <hr>
+  <hr id="mobile-divider">
   <div class="form-group">
     <div class="col-sm-4 col-sm-offset-4">
       <button type="submit" ladda="loading" class="btn btn-cta-primary btn-lg btn-block" id="next-btn" data-style="zoom-in">Next</button>
@@ -121,7 +97,7 @@
   </div>
    </div>
       <div class="col-sm-3 hidden-xs" style="background:#fff;margin-left:40px;margin-top:-21px;border:1px solid #eee;padding-left:40px;padding-top:20px;line-height:2.5em;padding-bottom:20px">
-    &#10004; Be a UK resident<br>&#10004; Have a Full UK driving licence<br> &#10004; Earn more than £500 monthly <br> &#10004; Be the owner of the vehicle <br> &#10004; Vehicle must be roadworthy <br> &#10004; Must have a smartphone
+    &#10004; Be a UK resident<br> &#10004; Earn more than £500 monthly <br> &#10004; Be the owner of the vehicle <br> &#10004; Vehicle must be roadworthy <br> &#10004; Must have a smartphone
    </div>
       <div class="col-sm-3 well hidden-xs" style="margin-left:40px;margin-top:55px">
      <div class="col-sm-1">

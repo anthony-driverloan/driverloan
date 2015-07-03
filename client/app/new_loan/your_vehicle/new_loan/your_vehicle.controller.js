@@ -8,7 +8,7 @@ angular.module('driverloanV1App')
 
   $scope.keeperoptions = [{value:"The vehicle's logbook is in my name"},{value:"The vehicle's logbook is NOT in my name"}];
 
-  $scope.financeoptions = [{value:"There is no outstanding finance"},{value:"The vehicle is on finance"}];
+  $scope.financeoptions = [{value:"Still repaying finance"},{value:"Finance free"}];
 
   $scope.insuranceoptions = [{value:"Fully Comprehensive"},{value:"Third party only"},{value:"None"}];
 
@@ -42,11 +42,10 @@ $http({
         }
     }).success(function(response) {
       var vehicleValue = Math.round(response.data.borrow / 100) * 100
-      $http.post('/api/vehicles',{registration:$scope.vehicle.registration,mileage:$scope.vehicle.mileage,value:vehicleValue,manufacturer:response.data.make,model:response.data.model,insurance:$scope.vehicle.insurance.value})
+      $http.post('/api/vehicles',{registration:$scope.vehicle.registration,mileage:$scope.vehicle.mileage,value:vehicleValue,manufacturer:response.data.make,model:response.data.model})
       .success(function(data){
 
         $cookies.put('vehicle', data._id);
-
 
           $location.path('/apply/personal_details');
       })

@@ -19,7 +19,6 @@ var UserSchema = new Schema({
   currentAddressTown: { type: String, required: true, lowercase: true },
   currentAddressCounty: { type: String, lowercase: true },
   currentAddressPostcode: { type: String, required: true, lowercase: true },
-  residenceStatus: { type: String, required: true, lowercase: true },
   workNumber: { type: String, lowercase: true },
   homeNumber: { type: String, lowercase: true },
   vehicleId:{type:Schema.Types.ObjectId},

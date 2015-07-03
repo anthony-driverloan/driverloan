@@ -5,6 +5,9 @@ var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
 var sendgrid = require('sendgrid')('driverloansceo','Authme1290');
+var path = require('path');
+var templatesDir  = path.join(__dirname, '..', '..', 'templates');
+var emailTemplates = require('email-templates');
 
 
 
@@ -34,20 +37,40 @@ exports.create = function (req, res, next) {
   newUser.role = 'user';
 
 
-
-
   newUser.save(function(err, user) {
     if (err) return validationError(res, err);
     var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
 
-    sendgrid.send({
-      to:       req.body.email,
-      from:     'hello@driverloan.co.uk',
-      subject:  'Please confirm your email address',
-      text:     'My first email through SendGrid.'
-    }, function(err, json) {
-      if (err) { return console.error(err); }
-      console.log(json);
+    emailTemplates(templatesDir, function(err, template) {
+
+      if (err) {
+        console.log(err);
+      } else {
+
+      var locals = {
+        fName: newUser.fName
+      };
+
+        // Send a single email
+        template('confirm-email', locals, function(err, html, text) {
+          if (err) {
+            console.log(err);
+          } else {
+
+            sendgrid.send({
+              to:       req.body.email,
+              from:     'hello@driverloan.co.uk',
+              fromname: 'Driver Loan',
+              subject:  'Please confirm your email address',
+              html:     html
+            }, function(err, json) {
+              if (err) { return console.error(err); }
+              console.log(json);
+            });
+
+          }
+        });
+      }
     });
 
     res.json({ token: token });

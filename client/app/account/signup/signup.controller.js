@@ -108,7 +108,6 @@ angular.module('driverloanV1App')
           dobMonth: $scope.user.dobMonth.name,
           dobYear: $scope.user.dobYear.name,
           mobileNumber: $scope.user.mobileNumber,
-          residenceStatus: $scope.user.residenceStatus.name,
           currentAddressPostcode: $scope.address.postcode,
           currentAddressLineOne: $scope.addressSelected.line_1,
           currentAddressLineTwo: $scope.addressSelected.line_2,

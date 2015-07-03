@@ -90,7 +90,7 @@
 
     </div>
 
-    <div class="col-sm-1" style="margin-top:13px">
+    <div class="col-sm-1 hidden-xs" style="margin-top:13px">
     <a href="" tooltips tooltip-title="You must be over 18" tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
     </div>
 
@@ -104,25 +104,13 @@
       <input type="text" class="form-control" id="inputPassword3" ng-model="user.mobileNumber" placeholder="(Your mobile phone number)">
 
     </div>
-    <div class="col-sm-1" style="margin-top:13px">
+    <div class="col-sm-1  hidden-xs" style="margin-top:13px">
     <a href="" tooltips tooltip-title="We will send your verificiation code to this number" tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
     </div>
   </div>
   <hr class="hidden-xs">
        <p class="form-header mobile-form-header">Address details</p>
      <hr>
-
-       <div class="form-group">
-    <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Residence status</label>
-    <div class="col-sm-6">
-
-       <select class="form-control" ng-model="user.residenceStatus" ng-options="residenceStatus.name for residenceStatus in residenceStatuses" >
-
-         <option value="">--</option>
-</select>
-
-    </div>
-  </div>
 
        <div class="form-group">
     <label for="inputEmail3" class="col-sm-3 control-label" style="margin-top:12px">Postcode</label>
@@ -201,7 +189,7 @@
 
     </div>
 
-    <div class="col-sm-1" style="margin-top:13px">
+    <div class="col-sm-1 hidden-xs" style="margin-top:13px">
     <a href="" tooltips tooltip-title="Password needs to be 6 characters or longer" tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
     </div>
   </div>
@@ -218,8 +206,8 @@
   <hr>
           <div class="form-group" style="padding-bottom:5px">
    <div class="checkbox">
-    <label class="col-sm-10 col-sm-offset-1 col-xs-12 checkbox-label">
-      <input type="checkbox" > By completing this application online you have agreed that you wish to communicate with us through email. Our communication will consist of electronic account statements, documentation pertaining to your application and your account..
+    <label class="col-sm-10 col-sm-offset-1 col-xs-12 checkbox-label" id="mobile-declaration">
+      <input type="checkbox" > By clicking 'Next' you have agreed that you wish to communicate with us through email. Our communication will consist of electronic account statements, documentation pertaining to your application and your account..
     </label>
   </div>
   </div>

@@ -5,7 +5,6 @@ var mongoose = require('mongoose'),
 
 var VehicleSchema = new Schema({
   registration: {type:String, required:true, uppercase:true},
-  insurance:{type:String, required:true},
   mileage: {type:Number, required: true},
   value: {type:Number, required: true, default:2000},
   manufacturer: {type: String, required:true, lowercase:true, default:'mercedes'},
