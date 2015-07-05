@@ -52,7 +52,8 @@ exports.create = function(req, res) {
               from:     'hello@driverloan.co.uk',
               fromname: 'Driver Loan',
               subject:  'Your Loan has been approved',
-              html:     html
+              html:     html,
+              files: [{filename:'Pre-contract information.pdf',url:'http://www.telmi.lt/wp-content/uploads/2013/02/Simple.pdf',contentType:'application/pdf'},{filename:'Borrower terms & conditions.pdf',url:'http://www.telmi.lt/wp-content/uploads/2013/02/Simple.pdf',contentType:'application/pdf'}]
             }, function(err, json) {
               if (err) { return console.error(err); }
               console.log(json);

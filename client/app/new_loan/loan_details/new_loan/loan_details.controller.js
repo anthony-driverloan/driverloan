@@ -3,6 +3,7 @@
 angular.module('driverloanV1App')
   .controller('NewLoanLoanDetailsCtrl', function ($scope, $location, $http, $cookies, Auth) {
 
+   $scope.loading = false; // start loading
         $scope.loan = {};
 
         $scope.loan.amount=200;
@@ -54,6 +55,7 @@ angular.module('driverloanV1App')
 
         $http.post('/api/loanRepayments', {credit: $scope.loan.amount.value,term: $scope.loan.term.value})
         .success(function(data){
+
           $scope.loanSelected = true;
           console.log(data);
           $scope.repaymentValue = data.value;
@@ -90,6 +92,7 @@ angular.module('driverloanV1App')
 
 
     $scope.loanRequest = function(){
+           $scope.loading = true; // start loading
 
             var user = Auth.getCurrentUser();
 

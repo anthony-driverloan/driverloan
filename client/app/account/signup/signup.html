@@ -91,7 +91,7 @@
     </div>
 
     <div class="col-sm-1 hidden-xs" style="margin-top:13px">
-    <a href="" tooltips tooltip-title="You must be over 18" tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
+    <a href="" tooltips tooltip-title="Your date of birth. You must be 18 or over to apply for a Driver Loan." tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
     </div>
 
   </div>
@@ -105,7 +105,7 @@
 
     </div>
     <div class="col-sm-1  hidden-xs" style="margin-top:13px">
-    <a href="" tooltips tooltip-title="We will send your verificiation code to this number" tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
+    <a href="" tooltips tooltip-title="We will call this number to speak to you before we payout your loan" tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
     </div>
   </div>
   <hr class="hidden-xs">
@@ -122,6 +122,9 @@
      <div class="col-sm-3">
       <button class="btn btn-cta-primary btn-block btn-add" ladda="loading" ng-click="findAddress()" id="find-address" data-style="zoom-in">Find address</button>
 
+    </div>
+    <div class="col-sm-1  hidden-xs" style="margin-top:13px">
+    <a href="" tooltips tooltip-title="The postcode of the address where you currently live." tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
     </div>
   </div>
 
@@ -180,6 +183,10 @@
       <input type="text" class="form-control" id="inputPassword3" ng-model="user.email">
 
     </div>
+
+    <div class="col-sm-1  hidden-xs" style="margin-top:13px">
+    <a href="" tooltips tooltip-title="Your personal email address. We will send a validation code to this email. Make sure this is an address that is checked regularly so that we can contact you. Your details are held securely and not passed to any third party." tooltip-side="right" style="font-size:20px"><i class="fa fa-question-circle"></i></a>
+    </div>
   </div>
 
     <div class="form-group">
@@ -221,34 +228,16 @@
 
    </div>
 
-      <div class="col-sm-3 well hidden-xs" style="background:#eee;margin-left:40px;margin-top:-95px">
-     <div class="col-sm-1">
-<div class="numberCircle"><i class="fa fa-info" style="color:#eea303"></i></div>
-  </div>
-   <div class="col-sm-8 col-sm-offset-1" style="margin-top:5px;">
- Eligibility Criteria
-  </div>
-   </div>
-      <div class="col-sm-3 hidden-xs" style="background:#fff;margin-left:40px;margin-top:-21px;border:1px solid #eee;padding-left:40px;padding-top:20px;line-height:2.5em;padding-bottom:20px">
-    &#10004; Be a UK resident<br>&#10004; Have a Full UK driving licence<br> &#10004; Earn more than £500 monthly <br> &#10004; Be the owner of the vehicle <br> &#10004; Vehicle must be roadworthy <br> &#10004; Must have a smartphone
-   </div>
-      <div class="col-sm-3 well hidden-xs" style="background:#eee;margin-left:40px;margin-top:55px">
-     <div class="col-sm-1">
-<div class="numberCircle"><i class="fa fa-phone" style="color:#eea303"></i></div>
-  </div>
-   <div class="col-sm-8 col-sm-offset-1" style="margin-top:5px;text-align:center">
- Contact us
-  </div>
 
-   </div>
-      <div class="col-sm-3 hidden-xs" style="background:#fff;margin-left:40px;margin-top:-21px;border:1px solid #eee;height:180px;padding-left:30px;padding-top:20px;text-align:Center">
-02085933403
-<hr>
-Our opening ours are monday - friday (9am - 8pm),<br> Saturdays (10am - 2pm)
-   </div>
+   <!-- CRITERIA-->
+<div ng-include="'components/criteria/criteria.html'"></div>
+
 
  </div>
   </div>
+
+
+  <!-- NORTON LOGO-->
 
   <div class="container">
     <div class="row">

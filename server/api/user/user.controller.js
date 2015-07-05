@@ -48,7 +48,8 @@ exports.create = function (req, res, next) {
       } else {
 
       var locals = {
-        fName: newUser.fName
+        fName: newUser.fName,
+        verifyToken: newUser._id
       };
 
         // Send a single email

@@ -8,7 +8,7 @@ angular.module('driverloanV1App')
 
   $scope.keeperoptions = [{value:"The vehicle's logbook is in my name"},{value:"The vehicle's logbook is NOT in my name"}];
 
-  $scope.financeoptions = [{value:"Still repaying finance"},{value:"Finance free"}];
+  $scope.financeoptions = [{value:"Finance free"},{value:"Still repaying finance"}];
 
   $scope.insuranceoptions = [{value:"Fully Comprehensive"},{value:"Third party only"},{value:"None"}];
 

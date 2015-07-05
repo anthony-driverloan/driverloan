@@ -3,6 +3,8 @@
 angular.module('driverloanV1App')
   .controller('NewLoanUploadDocumentsCtrl', function ($scope, $location,Auth, $cookies, $http) {
 
+
+   $scope.loading = false; // start loading
     $scope.phoneCall  = {};
 
 
@@ -17,6 +19,8 @@ angular.module('driverloanV1App')
     $scope.phoneCall.email = user.email;
 
     $scope.phoneCall.fName = user.fName;
+
+    
 
     console.log($scope.phoneCall.userId);
 
@@ -62,6 +66,7 @@ console.log($scope.phoneCall);
 
 
   $scope.arrangeCall = function(){
+    $scope.loading = true; // start loading
 
     $http.post('/api/phonecalls', $scope.phoneCall)
     .success(function(data){
