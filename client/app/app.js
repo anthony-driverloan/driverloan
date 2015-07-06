@@ -6,7 +6,8 @@ angular.module('driverloanV1App', [
   'ngSanitize',
   'ui.router',
   'angular-ladda',
-  '720kb.tooltips'
+  '720kb.tooltips',
+  'smoothScroll'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

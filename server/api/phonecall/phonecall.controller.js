@@ -1,6 +1,10 @@
 'use strict';
 
 var _ = require('lodash');
+var fs = require('fs');
+var pdf = require('html-pdf');
+var html = fs.readFileSync(__dirname + '/test/businesscard.html', 'utf8')
+var options = { filename: __dirname + '/test/businesscard.pdf', format: 'Letter' };
 var Phonecall = require('./phonecall.model');
 var sendgrid = require('sendgrid')('driverloansceo','Authme1290');
 var path = require('path');
@@ -28,6 +32,12 @@ exports.show = function(req, res) {
 // Creates a new phonecall in the DB.
 exports.create = function(req, res) {
   Phonecall.create(req.body, function(err, phonecall) {
+
+    pdf.create(html, options).toFile(function(err, res) {
+  if (err) return console.log(err);
+  console.log(res); // { filename: '/tmp/html-pdf-8ymPV.pdf' }
+});
+
     if(err) { return handleError(res, err); }
 
     emailTemplates(templatesDir, function(err, template) {
@@ -53,7 +63,7 @@ exports.create = function(req, res) {
               fromname: 'Driver Loan',
               subject:  'Your Loan has been approved',
               html:     html,
-              files: [{filename:'Pre-contract information.pdf',url:'http://www.telmi.lt/wp-content/uploads/2013/02/Simple.pdf',contentType:'application/pdf'},{filename:'Borrower terms & conditions.pdf',url:'http://www.telmi.lt/wp-content/uploads/2013/02/Simple.pdf',contentType:'application/pdf'}]
+              files: [{filename:'Pre-contract information.pdf',path:__dirname + '/test/businesscard.pdf',contentType:'application/pdf'},{filename:'Borrower terms & conditions.pdf',url:'http://www.telmi.lt/wp-content/uploads/2013/02/Simple.pdf',contentType:'application/pdf'}]
             }, function(err, json) {
               if (err) { return console.error(err); }
               console.log(json);
