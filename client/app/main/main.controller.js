@@ -10,6 +10,14 @@ angular.module('driverloanV1App')
     	}
     });
 
-  
+
+    // With JQuery
+    $('#ex2').slider({
+      formatter: function(value) {
+        return 'Current value: ' + value;
+      }
+    });
+
+
 
   });
