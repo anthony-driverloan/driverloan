@@ -10,7 +10,6 @@ module.exports = function(app) {
 
   // Insert routes below
   app.use('/api/payments', require('./api/payment'));
-  app.use('/api/gocardless', require('./api/gocardles'));
   app.use('/api/verifyEmails', require('./api/verifyEmail'));
   app.use('/api/accounts', require('./api/account'));
   app.use('/api/loanRepayments', require('./api/loanRepayment'));

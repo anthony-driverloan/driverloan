@@ -22,16 +22,9 @@ exports.show = function(req, res) {
 
 // Creates a new payment in the DB.
 exports.create = function(req, res) {
-  Payment.create(req.body, function(err, payment) {
-    if(err) { return handleError(res, err); }
-    if (!gocardless.webhookValid(req.body)) return res.send(403);
 
-  // Do anything which you need to do, e.g. update your database
-  // It's better to make this asynchronous as GoCardless needs a
-  // 200 response within 5 seconds
+  console.log(req.body);
 
-  res.send(200);
-  });
 };
 
 // Updates an existing payment in the DB.
