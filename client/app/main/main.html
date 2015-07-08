@@ -4,56 +4,45 @@
 <div class="wrapper">
 
   <div ng-include="'components/navbar/navbar.html'"></div>
-  <!-- ******PROMO****** -->
-  <section id="promo" class="promo section">
-    <div class="container intro">
-      <h2 class="title hidden-xs">Unlock the cash in your vehicle<br />and keep on driving it.
-      </h2>
 
-      <h2 class="title visible-xs" style="text-align:left;font-size:30px;line-height:1.2em">Unlock the cash in your vehicle and keep on driving it.</h2>
-      <p class="summary" >&#10004; Borrow up to £5000 within 1 hour</p>
-      <p class="summary">&#10004; No credit scores, secured loan</p>
-      <p class="summary">&#10004; No application fee</p>
-      <p class="summary">&#10004; No early settlement fee</p>
+  <!-- ******VIDEO****** -->
+  <section id="video" class="video section">
+      <div class="container" style="text-align:center">
+        <h2 >Flexbile loans secured against your vehicle</h2>
+          <p class="intro" style="color:#fff">We're focused on transparency so you know exactly where you stand at all times. </p>
 
-
-
-
-      <a class="btn btn-cta btn-cta-primary btn-lg col-sm-4 col-xs-12 btn-main-mobile" id="btn-lg" href="/apply/your_vehicle">Apply Now</a>
-
-
-
-
-    </div><!--//intro-->
-
-
-
-
-    <div class="fixed-container" >
-      <div class="signup" >
-        <div class="container text-center"   id="mobile-rep">
-          <h3 class=" lead" id="mobile-lead" >Representative 49.9% APR</h3>
-          <p class="summary" id="mobile-summary">All our agreements are secured against your vehicle and are subject to affordability<br>The vehicle may be repossessed if you do not keep up the repayments
-
-          </p>
-
-          <p  style="color:#fff" class="lead" id="mobile-rep-exp">Representative Example: Borrowing £1500 over 24 months, repaying £92.73 per month, total repayable £2225.52 . <br>Interest rate 49.9 % (variable)</p>
-
-
-        </div><!--//contianer-->
-      </div><!--//signup-->
-
-
-
-    </div>
-    <div class="bg-slider-wrapper">
-      <div id="bg-slider" class="flexslider bg-slider">
-        <ul class="slides">
-          <li class="slide slide-2"></li>
-        </ul>
       </div>
-    </div><!--//bg-slider-wrapper-->
-  </section><!--//promo-->
+
+      <div class="container" style="text-align:center;margin-top:20px;">
+
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-3" style="background:white;height:50px;padding-top:12px">
+          <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="200" data-slider-max="5000" data-slider-step="100" data-slider-value="3000" data-slider-tooltip="hide"/>
+        </div>
+        <div class="col-sm-2" style="background:#eee;height:50px;padding-top:10px">
+          <p class="lead" style="font-weight:bold;color:#0e83cd">£<span id="ex1SliderVal">3000</span></span></p>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:10px">
+        <div class="col-sm-4 col-sm-offset-3" style="background:white;height:50px;padding-top:12px">
+          <input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="6" data-slider-max="36" data-slider-step="6" data-slider-value="18" data-slider-tooltip="hide"/>
+
+        </div>
+        <div class="col-sm-2" style="background:#eee;height:50px;padding-top:10px">
+        <p class="lead" style="font-weight:bold;color:#0e83cd"><span id="ex2SliderVal">12</span> months</p>
+        </div>
+      </div>
+
+      <p  style="color:#fff;margin-top:20px" class="lead">Borrowing £<span id="aprSliderVal">3000</span>, repaying £147.81 per month, Interest and fees:£2262.84, total repayable £3547.53</p>
+
+
+      <div class="text-center" style="margin-top:30px">
+        <a class="btn btn-cta btn-cta-primary btn-lg col-sm-4 col-sm-offset-4" href="/apply/your_vehicle" >Apply Now</a>
+      </div>
+
+      </div>
+  </section><!--//video-->
 
 
 
@@ -183,44 +172,7 @@
     </div><!--//container-->
   </section><!--//why-->
 
-  <!-- ******VIDEO****** -->
-  <section id="video" class="video section">
-      <div class="container" style="text-align:center">
-        <h2 >Rates & Terms</h2>
-          <p class="intro" style="color:#fff">We're focused on transparency so you know exactly where you stand at all times. </p>
 
-      </div>
-
-      <div class="container" style="text-align:center;margin-top:20px;">
-
-      <div class="row">
-        <div class="col-sm-4 col-sm-offset-3" style="background:white;height:50px;padding-top:12px">
-          <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="200" data-slider-max="5000" data-slider-step="100" data-slider-value="3000" data-slider-tooltip="hide"/>
-        </div>
-        <div class="col-sm-2" style="background:#eee;height:50px;padding-top:10px">
-          <p class="lead" style="font-weight:bold;color:#0e83cd">£<span id="ex1SliderVal">3000</span></span></p>
-        </div>
-      </div>
-
-      <div class="row" style="margin-top:10px">
-        <div class="col-sm-4 col-sm-offset-3" style="background:white;height:50px;padding-top:12px">
-          <input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="6" data-slider-max="36" data-slider-step="6" data-slider-value="18" data-slider-tooltip="hide"/>
-
-        </div>
-        <div class="col-sm-2" style="background:#eee;height:50px;padding-top:10px">
-        <p class="lead" style="font-weight:bold;color:#0e83cd"><span id="ex2SliderVal">12</span> months</p>
-        </div>
-      </div>
-
-      <p  style="color:#fff;margin-top:20px" class="lead">Borrowing £<span id="aprSliderVal">3000</span>, repaying £147.81 per month, Interest and fees:£2262.84, total repayable £3547.53</p>
-
-
-      <div class="text-center" style="margin-top:30px">
-        <a class="btn btn-cta btn-cta-primary btn-lg col-sm-4 col-sm-offset-4" href="/apply/your_vehicle" >Apply Now</a>
-      </div>
-
-      </div>
-  </section><!--//video-->
 
 
   <!-- ******FAQ****** -->
