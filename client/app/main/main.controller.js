@@ -16,6 +16,8 @@ angular.module('driverloanV1App')
     $("#ex2").slider();
     $("#ex2").on("slide", function(slideEvt) {
     	$("#ex2SliderVal").text(slideEvt.value);
+      $("#monthSliderVal").text(slideEvt.value);
+
     });
 
 
