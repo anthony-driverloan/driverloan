@@ -2,6 +2,10 @@
 
 angular.module('driverloanV1App')
   .controller('MainCtrl', function ($scope, $http) {
+$scope.loan = {};
+
+
+
 
     // With JQuery
     // With JQuery
@@ -10,6 +14,11 @@ angular.module('driverloanV1App')
   	$("#ex1SliderVal").text(slideEvt.value);
     $("#aprSliderVal").text(slideEvt.value);
     console.log(slideEvt.value);
+
+
+
+
+
   });
 
     // With JQuery
@@ -17,6 +26,22 @@ angular.module('driverloanV1App')
     $("#ex2").on("slide", function(slideEvt) {
     	$("#ex2SliderVal").text(slideEvt.value);
       $("#monthSliderVal").text(slideEvt.value);
+
+    $scope.loan.term = slideEvt.value;
+
+      console.log(slideEvt.value);
+
+      console.log($scope.loan);
+
+      // Simple POST request example :
+    $http.post('/api/loanRepayments/',{credit:1500,term:$scope.loan.term}).
+      success(function(data, status, headers, config) {
+      console.log(data);
+      }).
+      error(function(data, status, headers, config) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+      });
 
     });
 
