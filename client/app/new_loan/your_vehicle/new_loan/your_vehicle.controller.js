@@ -20,7 +20,7 @@ angular.module('driverloanV1App')
 
 $http({
         method: 'POST',
-        url: 'http://quote.loans2go.co.uk/api/calc',
+        url: 'https://quote.loans2go.co.uk/api/calc',
         data: {access_token:'8df527db900492900a6447540ea13d0b',reg:$scope.vehicle.registration,mileage:$scope.vehicle.mileage,condition:'average'},
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         transformRequest: function(obj) {
