@@ -2,9 +2,13 @@
 
 angular.module('driverloanV1App')
   .controller('MainCtrl', function ($scope, $http) {
+
+        mixpanel.track("Visited site"); // mixpanel
+
 $scope.loan = {};
 
-
+$scope.loan.amount = 3000;
+$scope.loan.term = 24;
 
 
     // With JQuery
@@ -13,9 +17,45 @@ $scope.loan = {};
   $("#ex1").on("slide", function(slideEvt) {
   	$("#ex1SliderVal").text(slideEvt.value);
     $("#aprSliderVal").text(slideEvt.value);
-    console.log(slideEvt.value);
 
 
+    $scope.loan.amount = slideEvt.value;
+
+    var CalcRepay = function() {
+        var m= 12;
+      var p=parseInt(slideEvt.value);
+      var i=0;
+      var f=0;
+      var n=parseInt($scope.loan.term);
+      var r=79.9;
+
+      //calculate the 'x-factor' ...
+      var x=1/Math.pow(1+r/100,1/m)
+      //calculate the repayment ...
+      var a=((p-i-f*Math.pow(x,n))*(x-1))/(Math.pow(x,n+1)-x)
+     return TwoDP(a);
+    }
+
+    function TwoDP(num) {
+      if (isNaN(num)) num="0"
+      num="$"+Math.round(100*num)/100;
+      if (num.indexOf(".")==-1) num+=".00";
+      if (num.indexOf(".")==num.length-2) num+="0";
+      return num.substring(1,num.length);
+    }
+
+    function OneDP(num) {
+      if (isNaN(num)) num="0"
+      num="$"+Math.round(10*num)/10;
+      if (num.indexOf(".")==-1) num+=".0";
+      return num.substring(1,num.length);
+    }
+    $("#monthlyPayment").text(CalcRepay());
+
+    var total = CalcRepay() * $scope.loan.term;
+      $("#totalPayment").text(TwoDP(total));
+
+    return $scope.loan.amount;
 
 
 
@@ -29,19 +69,43 @@ $scope.loan = {};
 
     $scope.loan.term = slideEvt.value;
 
-      console.log(slideEvt.value);
 
-      console.log($scope.loan);
+    var CalcRepay = function() {
+        var m= 12;
+      var p=parseInt($scope.loan.amount);
+      var i=0;
+      var f=0;
+      var n=parseInt(slideEvt.value);
+      var r=79.9;
 
-      // Simple POST request example :
-    $http.post('/api/loanRepayments/',{credit:1500,term:$scope.loan.term}).
-      success(function(data, status, headers, config) {
-      console.log(data);
-      }).
-      error(function(data, status, headers, config) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-      });
+      //calculate the 'x-factor' ...
+      var x=1/Math.pow(1+r/100,1/m)
+      //calculate the repayment ...
+      var a=((p-i-f*Math.pow(x,n))*(x-1))/(Math.pow(x,n+1)-x)
+     return TwoDP(a);
+    }
+
+    function TwoDP(num) {
+      if (isNaN(num)) num="0"
+      num="$"+Math.round(100*num)/100;
+      if (num.indexOf(".")==-1) num+=".00";
+      if (num.indexOf(".")==num.length-2) num+="0";
+      return num.substring(1,num.length);
+    }
+
+    function OneDP(num) {
+      if (isNaN(num)) num="0"
+      num="$"+Math.round(10*num)/10;
+      if (num.indexOf(".")==-1) num+=".0";
+      return num.substring(1,num.length);
+    }
+
+    $("#monthlyPayment").text(CalcRepay());
+
+    var total = CalcRepay() * $scope.loan.term;
+      $("#totalPayment").text(TwoDP(total));
+
+return $scope.loan.term;
 
     });
 

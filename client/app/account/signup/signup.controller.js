@@ -3,6 +3,9 @@
 angular.module('driverloanV1App')
   .controller('SignupCtrl', function ($scope, Auth, $location, $http, $cookies) {
 
+
+    mixpanel.track("Received loan offer");
+
    $scope.loading = false; // start loading
     var vehicleCookie = $cookies.get('vehicle');
 

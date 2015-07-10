@@ -33,7 +33,7 @@ exports.create = function(req, res) {
     var i=0;
     var f=0;
     var n=parseInt(req.body.term);
-    var r=164.61;
+    var r=79.9;
 
     //calculate the 'x-factor' ...
     var x=1/Math.pow(1+r/100,1/m)
