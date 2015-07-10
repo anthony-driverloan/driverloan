@@ -9,13 +9,13 @@
   <section id="video" class="video section">
       <div class="container" style="text-align:center;margin-top:-20px">
         <h2 >Flexible Loan Secured Against Your Vehicle</h2>
-          <p class="intro" style="color:#fff"> Borrow up to £5000 within 1 hour &#183; No credit scores &#183; Affordable monthly repayments </p>
+          <p class="intro hidden-xs" style="color:#fff"> Borrow up to £5000 within 1 hour &#183; No credit scores &#183; Affordable monthly repayments </p>
 
       </div>
 
       <div class="container" style="text-align:center;margin-top:20px;">
 
-      <div class="row">
+      <div class="row hidden-xs">
         <div class="col-sm-4 col-sm-offset-3" style="background:white;height:50px;padding-top:12px">
           <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="200" data-slider-max="5000" data-slider-step="100" data-slider-value="3000" data-slider-tooltip="hide"/>
         </div>
@@ -24,7 +24,29 @@
         </div>
       </div>
 
-      <div class="row" style="margin-top:10px">
+      <div class="row visible-xs">
+        <div class="col-xs-6">
+          <select class="form-control">
+            <option>£3000</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="col-xs-6">
+          <select class="form-control">
+            <option>18 monnths</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="row hidden-xs" style="margin-top:10px">
         <div class="col-sm-4 col-sm-offset-3" style="background:white;height:50px;padding-top:12px">
           <input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="6" data-slider-max="36" data-slider-step="6" data-slider-value="18" data-slider-tooltip="hide"/>
 
@@ -37,8 +59,12 @@
       <p  style="color:#fff;margin-top:20px" class="lead">Representative Example: Borrowing £<span id="aprSliderVal">3000</span> over <span id="monthSliderVal">18</span>  months, repaying £195.16 per month<br> Total repayable £7025.76. Interest rate 49.9 % (variable). </p>
 
 
-      <div class="text-center" style="margin-top:30px;padding-left:120px;padding-right:120px">
+      <div class="text-center hidden-xs" style="margin-top:30px;padding-left:120px;padding-right:120px">
         <a class="btn btn-cta btn-cta-primary btn-lg col-sm-4 col-sm-offset-4" href="/apply/your_vehicle" >Apply Now</a>
+      </div>
+
+      <div class="text-center visible-xs" style="margin-top:30px;">
+        <a class="btn btn-cta btn-cta-primary btn-lg col-xs-12" href="/apply/your_vehicle" >Apply Now</a>
       </div>
 
       </div>
@@ -49,15 +75,38 @@
   <!-- ******PRESS****** -->
   <div class="press">
     <div class="container text-center">
-      <div class="row">
-        <ul class="list-unstyled">
-          <li class="col-md-2 col-sm-4 col-xs-6" style="margin-top:5px">FEATURED IN:</li>
-          <li class="col-md-2 col-sm-4 col-xs-6"><a href="#"><img class="img-responsive" src="https://s3-eu-west-1.amazonaws.com/driverloan-assets/bloomberg.svg" alt=""></a></li>
-          <li class="col-md-2 col-sm-4 col-xs-6 xs-break"><a href="#"><img class="img-responsive" src="assets/images/press/press-1.png"  alt=""></a></li>
-          <li class="col-md-2 col-sm-4 col-xs-6 sm-break"><a href="#"><img class="img-responsive" src="https://s3-eu-west-1.amazonaws.com/driverloan-assets/mailonline.svg" alt=""></a></li>
-          <li class="col-md-2 col-sm-4 col-xs-6 xs-break"><a href="#"><img class="img-responsive" src="assets/images/press/press-6.png" alt=""></a></li>
-          <li class="col-md-2 col-sm-4 col-xs-6"><a href="#"><img class="img-responsive" src="https://s3-eu-west-1.amazonaws.com/driverloan-assets/2laehw1.png" alt=""></a></li>
-        </ul>
+      <div class="row" style="margin-top:5px">
+        <div class="col-sm-3 col-sm-offset-2">
+          <span class="fa-stack">
+  <i class="fa fa-square fa-stack-2x" style="color:#2ECC71"></i>
+  <i class="fa fa-star fa-stack-1x" style="color:#fff"></i>
+</span>
+<span class="fa-stack">
+<i class="fa fa-square fa-stack-2x" style="color:#2ECC71"></i>
+<i class="fa fa-star fa-stack-1x" style="color:#fff"></i>
+</span>
+<span class="fa-stack">
+<i class="fa fa-square fa-stack-2x" style="color:#2ECC71"></i>
+<i class="fa fa-star fa-stack-1x" style="color:#fff"></i>
+</span>
+<span class="fa-stack">
+<i class="fa fa-square fa-stack-2x" style="color:#2ECC71"></i>
+<i class="fa fa-star fa-stack-1x" style="color:#fff"></i>
+</span>
+<span class="fa-stack">
+<i class="fa fa-square fa-stack-2x" style="color:#2ECC71"></i>
+<i class="fa fa-star fa-stack-1x" style="color:#fff"></i>
+</span>
+        </div>
+
+        <div class="col-sm-6" style="margin-left:-110px">
+          <p style="font-weight:bold;font-size:20px;color:#4d4d4d"><span style="color:#2ECC71">9.8</span>  <span style="color:#A6A6A6">of 10</span> rating on independent review site <a href="">Trustpilot </a></p>
+
+        </div>
+
+
+
+
       </div>
     </div>
   </div><!--//press-->
@@ -344,8 +393,12 @@
                       </div><!--//row-->
 
                       <div class="clearfix"></div>
-                      <div class="text-center" style="padding-left:120px;padding-right:120px">
+                      <div class="text-center hidden-xs" style="padding-left:120px;padding-right:120px">
                         <a class="btn btn-cta btn-cta-primary btn-lg col-sm-4 col-sm-offset-4" href="/apply/your_vehicle" >Apply Now</a>
+                      </div>
+
+                      <div class="text-center visible-xs">
+                        <a class="btn btn-cta btn-cta-primary btn-lg col-sm-4 col-sm-offset-4 col-xs-12" href="/apply/your_vehicle" >Apply Now</a>
                       </div>
 
                     </div><!--//container-->
