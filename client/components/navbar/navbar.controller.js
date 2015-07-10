@@ -7,10 +7,6 @@ angular.module('driverloanV1App')
       'link': '/'
     }];
 
-    console.log($location.path());
-
-
-
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;

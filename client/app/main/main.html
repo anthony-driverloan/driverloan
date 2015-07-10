@@ -17,7 +17,7 @@
 
       <div class="row hidden-xs">
         <div class="col-sm-4 col-sm-offset-3" style="background:white;height:50px;padding-top:12px">
-          <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="200" data-slider-max="5000" data-slider-step="100" data-slider-value="3000" data-slider-tooltip="hide"/>
+          <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="300" data-slider-max="5000" data-slider-step="100" data-slider-value="3000" data-slider-tooltip="hide"/>
         </div>
         <div class="col-sm-2" style="background:#eee;height:50px;padding-top:10px;border-left:1px solid #bababa">
           <p class="lead" style="font-weight:bold;color:#0e83cd" id="amount">£<span id="ex1SliderVal">3000</span></span></p>
@@ -259,12 +259,12 @@
               <div class="panel">
                 <div class="panel-heading">
                   <h4 class="panel-title"><a data-parent="#accordion"
-                    data-toggle="collapse" class="panel-toggle" href="" data-target="#faq3"><i class="fa fa-plus-square"></i>What documents do i need ?</a></h4>
+                    data-toggle="collapse" class="panel-toggle" href="" data-target="#faq3"><i class="fa fa-plus-square"></i>What documents do i need have?</a></h4>
                   </div>
 
                   <div class="panel-collapse collapse" id="faq3">
                     <div class="panel-body">
-                      Before we payout your loan we need to see your vehicle's V5 document (logbook), payslips or bank statements showing prove of income. You send it to us electronically.
+                      Before we payout your loan we need to see your vehicle's V5 document (logbook), payslips or bank statements showing prove of income. We also need to see the condition of your vehicle. <br><strong>You send it to us electronically with your smartphone.</strong>
                     </div>
                   </div>
                 </div><!--//panel-->
@@ -497,27 +497,22 @@
                 </div><!--//modal-->
 
                 <!-- Reset Password Modal -->
-                <div class="modal modal-resetpass" id="resetpass-modal" tabindex="-1" role="dialog" aria-labelledby="resetpassModalLabel" aria-hidden="true">
+                <div class="modal modal-resetpass" id="resetpass-modal" tabindex="-1" role="dialog" aria-labelledby="resetpassModalLabel" aria-hidden="true" style="margin-top:70px">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 id="resetpassModalLabel" class="modal-title text-center">Password Reset</h4>
+                        <button type="button" class="close" data-dismiss="modal" id="close-modal" aria-hidden="true">&times;</button>
+                        <h4 id="resetpassModalLabel" class="modal-title text-center">Claim your free gift card!</h4>
                       </div>
-                      <div class="modal-body">
+                      <div class="modal-body" style="height:350px">
                         <div class="resetpass-form-container">
-                          <p class="intro">Please enter your email address below and we'll email you a link to a page where you can easily create a new password.</p>
-                          <form class="resetpass-form">
-                            <div class="form-group email">
-                              <label class="sr-only" for="reg-email">Your email</label>
-                              <input id="reg-email" name="reg-email" type="email" class="form-control login-email" placeholder="Your email">
-                            </div><!--//form-group-->
-                            <button type="submit" class="btn btn-block btn-cta-primary">Reset Password</button>
-                          </form>
+                          <img src="https://s3-eu-west-1.amazonaws.com/driverloan-assets/F_28653.jpg" alt="">
+                          <p class="intro" style="margin-top:20px"><strong>Special offer!</strong> Apply for a loan today and if your loan is approved we will send you your gift card within 7 working days. More information about giftcard <a href="" style="text-decoration:underline">here.</a></p>
+
                         </div><!--//login-form-container-->
                       </div><!--//modal-body-->
                       <div class="modal-footer">
-                        <p>I want to <a class="back-to-login-link" id="back-to-login-link" href="#">return to login</a></p>
+                        <a href="/apply/your_vehicle" type="submit" class="btn btn-block btn-cta-primary btn-lg">Apply Now</a>
                       </div><!--//modal-footer-->
                     </div><!--//modal-content-->
                   </div><!--//modal-dialog-->
