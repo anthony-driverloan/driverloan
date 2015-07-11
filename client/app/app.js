@@ -7,7 +7,8 @@ angular.module('driverloanV1App', [
   'ui.router',
   'angular-ladda',
   '720kb.tooltips',
-  'smoothScroll'
+  'smoothScroll',
+  'duScroll'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

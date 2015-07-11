@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('driverloanV1App')
-  .controller('NewLoanYourVehicleCtrl', function ($scope, Auth, $http, $location, $cookies) {
+  .controller('NewLoanYourVehicleCtrl', function ($scope, Auth, $http, $location, $cookies,$document) {
+
+    $scope.applicationError = false;
 
     mixpanel.track("Started application"); // mixpanel
 
@@ -66,6 +68,22 @@ $http({
       })
       .error(function(data){
         console.log(data)
+        $('#next-btn').prop('disabled', false);
+
+           $scope.loading = false; // start loading
+             $scope.applicationError = true;
+
+
+
+             var top = 0;
+             var duration = 2000; //milliseconds
+
+             //Scroll to the exact position
+             $document.scrollTop(top, duration).then(function() {
+               console && console.log('You just scrolled to the top!');
+             });
+
+
       });
 
 

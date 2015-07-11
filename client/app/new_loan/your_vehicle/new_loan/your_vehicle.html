@@ -1,4 +1,11 @@
+ <a id="top"></a> 
 <div ng-include="'components/apply-navbar/navbar.html'"></div>
+
+
+<div class="alert alert-danger" style="margin-top:20px;text-align:center" ng-show="applicationError">
+  <strong>Whoops!</strong> Check your application for errors.
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
