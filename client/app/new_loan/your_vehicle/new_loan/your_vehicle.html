@@ -1,9 +1,11 @@
- <a id="top"></a> 
-<div ng-include="'components/apply-navbar/navbar.html'"></div>
+ <a id="top"></a>
+<div ng-include="'components/navbar/navbar.html'"></div>
 
-
+<div class="container">
 <div class="alert alert-danger" style="margin-top:20px;text-align:center" ng-show="applicationError">
-  <strong>Whoops!</strong> Check your application for errors.
+  <strong>Please check your application for errors</strong> 
+  <a class="close" data-dismiss="alert">×</a>
+</div>
 </div>
 
 <div class="container">

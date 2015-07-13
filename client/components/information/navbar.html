@@ -29,11 +29,11 @@
 </div>-->
 
         <!-- ******HEADER****** -->
-        <header id="header" class="header navbar-fixed-top" ng-controller="NavbarCtrl">
+        <header id="header" class="header navbar-fixed-top" ng-controller="NavbarCtrl" style="background:#212121">
             <div class="container">
                 <h1 class="logo pull-left">
                     <a href="/home">
-                        <span class="logo-title"><img src="https://s3-eu-west-1.amazonaws.com/driverloan-assets/r9l855.png"/ id="logo"> driver</span>
+                        <span class="logo-title" style="color:white"><img src="https://s3-eu-west-1.amazonaws.com/driverloan-assets/r9l855.png"/ id="logo"> driver</span>
                     </a>
                 </h1><!--//logo-->
                 <nav id="main-nav" class="main-nav navbar-right " role="navigation">
@@ -47,12 +47,12 @@
                     </div><!--//navbar-header-->
                     <div class="navbar-collapse collapse" id="navbar-collapse" style="text-align:center">
                         <ul class="nav navbar-nav" style="margin-top:5px">
-                          <li class="nav-item"><a href="/apply/your_vehicle">Apply</a></li>
+                          <li class="nav-item"><a href="/apply/your_vehicle" style="color:white">Apply</a></li>
 
-                            <li class="nav-item"><a href="" scroll-to="why" offset="80">About us</a></li>
-                            <li class="nav-item"><a href="" scroll-to="faq" offset="80">FAQs</a></li>
-                                                        <li class="nav-item"><a href="" scroll-to="contact-main" offset="80">Contact us</a></li>
-                                                        <li class="nav-item"><a href="/logbook_loans/how_it_works">Logbook Loans</a></li>
+                            <li class="nav-item"><a href="" scroll-to="why" offset="80" style="color:white">About us</a></li>
+                            <li class="nav-item"><a href="" scroll-to="faq" offset="80" style="color:white">FAQs</a></li>
+                                                        <li class="nav-item"><a href="" style="color:white" scroll-to="contact-main" offset="80">Contact us</a></li>
+                                                        <li class="nav-item"><a href="/logbook_loans" style="color:white">Logbook Loans</a></li>
 
                             <li class="nav-item nav-item-cta last" ng-hide="isLoggedIn()"><a href="/login"  class="btn btn-cta btn-cta-primary" >Log in</a></li>
                             <li class="nav-item nav-item-cta last" ng-show="isLoggedIn()"><a href="" ng-click="logout()"  class="btn btn-cta btn-cta-primary" >Log out</a></li>

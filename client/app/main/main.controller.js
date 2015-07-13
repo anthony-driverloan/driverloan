@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('driverloanV1App')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, $cookies) {
 
         mixpanel.track("Visited site"); // mixpanel
 
